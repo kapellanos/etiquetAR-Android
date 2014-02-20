@@ -1,0 +1,81 @@
+package es.uc3m.moc.etiquetar.utilities.constants;
+
+/**
+ * Constants
+ *
+ * @author JumTech
+ * @version 1.0
+ * 6/25/13
+ *
+ * Contendrá las constantes de la aplicación que no cambiarán en función del idioma
+ */
+public abstract class Constants {
+    // Constantes generales de la aplicación
+    // TODO modificar la URL base
+    public final static String URL_BASE = "http://ks3300515.kimsufi.com/etiquetar/";
+    public final static String URL_SERVER_LOGIN = "http://ks3300515.kimsufi.com/etiquetar/login.php";
+    public static final String URL_SERVER_REGISTER = "http://ks3300515.kimsufi.com/etiquetar/register.php";
+    public static final String URL_SERVER_PROFILES = "http://ks3300515.kimsufi.com/etiquetar/profiles.php";
+    public static final String URL_SERVER_RESOURCE = "http://ks3300515.kimsufi.com/etiquetar/resources.php";
+    public static final String URL_SERVER_RESOURCE_COMMENT = "http://ks3300515.kimsufi.com/etiquetar/comments.php";
+    public static final String URL_SERVER_PUT_COMMENT = "http://ks3300515.kimsufi.com/etiquetar/addNewComment.php";
+    public static final String URL_SERVER_REPLY_COMMENT = "http://ks3300515.kimsufi.com/etiquetar/replyComment.php";
+    public static final String URL_SERVER_RESPONSES_COMMENT = "http://ks3300515.kimsufi.com/etiquetar/responsesComment.php";
+    public static final String URL_SERVER_GET_COLLECTION = "http://ks3300515.kimsufi.com/etiquetar/getCollections.php";
+
+    // Constantes de ejecución de tareas en segundo plano
+    public final static int ID_EXECUTE_LOGIN = 0;
+    public static final int ID_GET_IMAGE = 1;
+    public final static int ID_REGISTER = 2;
+    public static final int ID_GET_PROFILES = 3;
+    public static final int ID_GET_RESOURCE = 4;
+    public static final int ID_GET_COMMENTS = 5;
+    public static final int ID_PUT_COMMENT = 6;
+    public static final int ID_REPLY_COMMENT = 7;
+    public static final int ID_GET_RESPONSES = 8;
+    public static final int ID_SAVE_DATA_TO_DB = 9;
+    public static final int ID_GET_IMAGE_HOME = 10;
+
+
+    // Constantes que almacenarán los parámetros que se pondrán en el JSON y se enviarán al servidor
+    public final static String JSON_USER_PARAM = "Usuario";
+    public final static String JSON_PASSWORD_PARAM = "Password";
+    public final static String JSON_SUCCESS = "success";
+    public static final String JSON_USER_NAME = "Nombre";
+    public static final String JSON_QR_ID_PARAM = "qr_id";
+    public static final String JSON_PROFILE_ID_PARAM = "profile_id";
+    public static final String JSON_RESOURCE_ID = "resource_id";
+
+    // Constantes que almacenarán los tipos de mensaje en el Log
+    public final static String LOG_JSON_ERROR = "JSON";
+    public final static String LOG_POST_ERROR = "POST";
+    public static final String LOG_BUTTON_PRESS = "BOTÓN APRETADO";
+
+    // Constantes que almacenarán variables resultado de ejecución de tareas
+    public final static String SCAN_RESULT_EXTRA = "SCAN_RESULT_FORMAT";
+    public final static String URL_QR_EXTRA = "URL_QR";
+    public final static String QR_ID_EXTRA = "QR_ID";
+    public final static String PROFILE_ID_EXTRA = "PROFILE_ID";
+    public final static String RESOURCE_ID_EXTRA = "RESOURCE_ID";
+    public final static String RESOURCE_NAME = "NAME_RESOURCE";
+    public final static String RESOURCE_INFO = "INFO_RESOURCE";
+    public final static String RESOURCE_URL ="URL_RESOURCE";
+    public final static String RESOURCE_ID = "ID_RESOURCE";
+
+    public final static String JSON_COMMENT = "comment";
+    public static final String JSON_COMMENT_NAME = "name";
+    public static final String JSON_COMMENT_DATE = "created_at";
+    public static final String JSON_RESULT_COMMENTS = "JSON_RESULT_COMMENTS";
+    public static final String TRANSACTION_COMPLETE = "TRANSACTION_COMPLETE";
+    public static final String JSON_COMMENT_RESPONSES = "responses";
+    public static final String JSON_COMMENT_ID = "id";
+    public static final String JSON_COLLECTION_ID = "collection_id";
+
+    public static final int MAXIMUM_COMMENT_SIZE = 220;
+    public static final String APP_NAME = "etiquetAR";
+
+    public static final String SHARED_PREFERENCES_NAME = "userName";
+    public static final String SHARED_PREFERENCES_PASSWORD = "dbPassword";
+
+    public static final int PASS_LENGTH = 18;
+}

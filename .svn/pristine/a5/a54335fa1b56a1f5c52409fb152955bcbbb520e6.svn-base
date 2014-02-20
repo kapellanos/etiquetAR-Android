@@ -1,0 +1,562 @@
+/**
+ * HomeActivity.java
+ *
+ * 13/09/13
+ *
+ * <definicion de la clase>
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.activities;
+
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.GregorianCalendar;
+
+import es.uc3m.moc.etiquetar.R;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments.ResourceCommentsActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+import es.uc3m.moc.etiquetar.utilities.database.FrequentQuerys;
+import es.uc3m.moc.etiquetar.utilities.general.FrequentMethods;
+import es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground;
+import es.uc3m.moc.etiquetar.utilities.layout.LinearLayoutOutlined;
+
+public class HomeActivity extends YouTubeBaseActivity implements
+        YouTubePlayer.OnInitializedListener, View.OnTouchListener {
+
+    private LinearLayout llHomeScreenLayout;
+    private ImageView newImageView;
+    private WebView webView;
+    private YouTubePlayerView youTubePlayerView;
+    private final String DEVELOPER_KEY = "AIzaSyAF-Uv4jtp15zqEi2M9HZ8E_V-Ton7S-FY";
+    private String video;
+    private float x1, y1;
+    private Cursor result = null;
+    private ProgressDialog progressDialog;
+    private LinearLayout profile;
+    private TextView title;
+    private TextView goResource;
+    private TextView goComments;
+
+    private TextView textDate;
+    private TextView textProfile;
+    private TextView textViewCounter;
+    private TextView textCommentsCounter;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity_home);
+        getReferences();
+        getElements();
+        llHomeScreenLayout.setOnTouchListener(this);
+    }
+
+    /**
+     * Obtiene la consulta a la base de datos y crea el layout para una etiqueta determinada
+     */
+    private void getElements() {
+        result = FrequentQuerys.getResources(getApplicationContext());
+        if(result.moveToFirst()) {
+            drawLayout();
+        } else {
+            FrequentMethods.noScanResources(this, this);
+        }
+    }
+
+    /**
+     * Crea el layout para la parte de últimos códigos QR visitados
+     */
+    private void drawLayout() {
+        if(llHomeScreenLayout.getChildAt(1) != null) {
+            llHomeScreenLayout.removeViewAt(1);
+        }
+        LinearLayout outlined;
+        outlined = new LinearLayout(this);
+        // Obtiene el tipo de recurso almacenado en la base de datos
+        String contentType = result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_CONTENT_TYPE));
+        LinearLayout container = new LinearLayout(this);
+        container.setOrientation(LinearLayout.HORIZONTAL);
+        container.setWeightSum(10);
+        LinearLayoutOutlined.LayoutParams containerParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        containerParams.weight = 4;
+        container.setLayoutParams(containerParams);
+        LinearLayoutOutlined.LayoutParams outlinedParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        outlined.setOrientation(LinearLayout.VERTICAL);
+        outlined.setPadding(10, 10, 10, 10);
+        outlined.setWeightSum(10);
+        outlinedParams.weight = 19;
+        outlined.setLayoutParams(outlinedParams);
+        title = new TextView(this);
+        title.setText(result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_NAME)));
+        LinearLayout.LayoutParams titleViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        titleViewParams.weight = 1;
+        title.setLayoutParams(titleViewParams);
+        title.setGravity(Gravity.CENTER);
+        title.setTypeface(null, Typeface.BOLD);
+        title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeActivity.this.finish();
+            }
+        });
+
+
+        LinearLayout forData = new LinearLayout(this);
+        forData.setWeightSum(10);
+        forData.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams forDataLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 4.5f);
+        forDataLayoutParams.setMargins(0,30,0,0);
+        forData.setLayoutParams(forDataLayoutParams);
+
+        GregorianCalendar tagDate = new GregorianCalendar();
+        tagDate.setTimeInMillis(result.getLong(result.getColumnIndex(DBConstants.RESOURCE_TABLE_DATE)));
+        profile = new LinearLayout(this);
+        profile.setOrientation(LinearLayout.VERTICAL);
+
+        textDate = new TextView(this);
+        textProfile = new TextView(this);
+        textCommentsCounter = new TextView(this);
+        textViewCounter = new TextView(this);
+        goResource = new TextView(this);
+        goComments = new TextView(this);
+
+        textDate.setText(getString(R.string.text_date_part_1) + " " + getDate(tagDate) + " " + getString(R.string.text_date_part_2) + " " + getTime(tagDate) + ".");
+        textProfile.setText(getString(R.string.text_profile) + " " + result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_PROFILE_NAME)) + ".");
+        textViewCounter.setText(getString(R.string.text_view_counter) + " " + result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_VIEWS)) + ".");
+        textCommentsCounter.setText(getString(R.string.text_comments_counter) + " " + result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_COMMENTS)) + ".");
+        goResource.setText(getString(R.string.goResource));
+        goComments.setText(getString(R.string.goComments));
+
+        goComments.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        goResource.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        textDate.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        textProfile.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        textCommentsCounter.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        textViewCounter.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+
+        goComments.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
+        goResource.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
+
+        profile.addView(textDate);
+        profile.addView(textProfile);
+        profile.addView(textViewCounter);
+        profile.addView(textCommentsCounter);
+        profile.addView(goResource);
+        profile.addView(goComments);
+
+        setListeners();
+        LinearLayout.LayoutParams profileLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+        profile.setLayoutParams(profileLayoutParams);
+
+
+        ImageView downArrow = new ImageView(this);
+        downArrow.setImageDrawable(getResources().getDrawable(R.drawable.arrow_down));
+        LinearLayout.LayoutParams downArrowParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        downArrowParams.weight = 0.5f;
+        downArrowParams.gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
+        downArrow.setLayoutParams(downArrowParams);
+        outlined.addView(title);
+        if(contentType.equals("image")) {
+            title.setVisibility(View.INVISIBLE);
+            profile.setVisibility(View.INVISIBLE);
+            newImageView = new ImageView(this);
+            newImageView.setVisibility(View.INVISIBLE);
+            LinearLayout.LayoutParams imageViewLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            newImageView.setLayoutParams(imageViewLayoutParams);
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage(getString(R.string.pdResourceImage));
+            progressDialog.show();
+            GetImage getImage = new GetImage(this);
+            getImage.execute(0, result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_URI)), newImageView, this);
+            setArrows(newImageView, imageViewLayoutParams, container, forData, profile, profileLayoutParams);
+        } else if(contentType.equals("video")) {
+            youTubePlayerView = new YouTubePlayerView(this);
+            LinearLayout.LayoutParams youtubeLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            youTubePlayerView.setLayoutParams(youtubeLayoutParams);
+            setVideo(result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_URI)));
+            setArrows(youTubePlayerView, youtubeLayoutParams, container,  forData, profile, profileLayoutParams);
+        } else if(contentType.equals("url")){
+            webView = new WebView(this);
+            LinearLayout.LayoutParams webViewLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            webView.setLayoutParams(webViewLayoutParams);
+            setWebView(result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_URI)));
+            setArrows(webView, webViewLayoutParams, container,  forData, profile, profileLayoutParams);
+        } else if(contentType.equals("text")) {
+            // Tipo texto
+            // TODO implementar tipo texto
+        }
+        outlined.addView(container);
+        outlined.addView(forData);
+        outlined.addView(downArrow);
+        llHomeScreenLayout.addView(outlined);
+    }
+
+    private void setListeners() {
+        goResource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent selectProfileActivity = new Intent(getApplicationContext(), SelectProfileActivity.class);
+                selectProfileActivity.putExtra(Constants.QR_ID_EXTRA, result.getInt(result.getColumnIndex(DBConstants.RESOURCE_QR_ID)));
+                startActivity(selectProfileActivity);
+            }
+        });
+
+        goComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent commentsActivity = new Intent(getApplicationContext(), ResourceCommentsActivity.class);
+                commentsActivity.putExtra(Constants.RESOURCE_ID_EXTRA, result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_ID)));
+                startActivity(commentsActivity);
+            }
+        });
+    }
+
+    private void setWebView(String URL) {
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl(URL);
+    }
+
+    private String getTime(GregorianCalendar calendar) {
+        String hour, minute, second;
+        hour = String.valueOf(calendar.get(GregorianCalendar.HOUR_OF_DAY)).length() == 1 ? "0".concat(String.valueOf(calendar.get(GregorianCalendar.HOUR_OF_DAY))) : String.valueOf(calendar.get(GregorianCalendar.HOUR_OF_DAY));
+        minute = String.valueOf(calendar.get(GregorianCalendar.MINUTE)).length() == 1 ? "0".concat(String.valueOf(calendar.get(GregorianCalendar.MINUTE))) : String.valueOf(calendar.get(GregorianCalendar.MINUTE));
+        second = String.valueOf(calendar.get(GregorianCalendar.SECOND)).length() == 1 ? "0".concat(String.valueOf(calendar.get(GregorianCalendar.SECOND))) : String.valueOf(calendar.get(GregorianCalendar.SECOND));
+        return hour.concat(":").concat(minute).concat(":").concat(second);
+
+    }
+
+    private String getDate(GregorianCalendar calendar) {
+        String dayOfMonth, month, year;
+        dayOfMonth = String.valueOf(calendar.get(GregorianCalendar.DAY_OF_MONTH)).length() == 1 ? "0".concat(String.valueOf(calendar.get(GregorianCalendar.DAY_OF_MONTH))) : String.valueOf(calendar.get(GregorianCalendar.DAY_OF_MONTH));
+        month = String.valueOf(calendar.get(GregorianCalendar.MONTH)).length() == 1 ? "0".concat(String.valueOf(calendar.get(GregorianCalendar.MONTH))) : String.valueOf(calendar.get(GregorianCalendar.MONTH));
+        year = String.valueOf(calendar.get(GregorianCalendar.YEAR));
+        return dayOfMonth.concat("/").concat(month).concat("/").concat(year);
+    }
+
+    /**
+     * Se encarga de comprobar que posición dentro de los tags visitados ocupa el actual y crear un layout adecuado (con flechas indicando que
+     * hay más contenido) en caso de ser necesario.
+     *
+     * @param view La vista en la que situará el contenido principal
+     * @param viewLayoutParams Los parámetros de la vista principal.
+     * @param container La vista contenedor que contendrá el contenido del recurso actual (sea del tipo que sea)
+     * @param forData Vista contenedor que contendrá la información sobre el recurso
+     * @param textLinearLayout Layout que contendrá los datos del recurso
+     * @param textLinearLayoutParams Los parámetros del layout que contendrá los datos del recurso
+     */
+    private void setArrows(View view,
+                           LinearLayout.LayoutParams viewLayoutParams,
+                           LinearLayout container,
+                           LinearLayout forData,
+                           LinearLayout textLinearLayout,
+                           LinearLayout.LayoutParams textLinearLayoutParams) {
+        ImageView rightArrow;
+        if(result.isLast() && result.isFirst()) {
+            viewLayoutParams.weight = 10;
+            container.addView(view);
+            textLinearLayoutParams.weight = 10;
+            forData.addView(textLinearLayout);
+            view.setBackgroundColor(Color.BLACK);
+        } else if(result.isLast() && !result.isFirst()){
+            viewLayoutParams.weight = 9.5f;
+            rightArrow = new ImageView(this);
+            rightArrow.setImageDrawable(getResources().getDrawable(R.drawable.arrow_left));
+            LinearLayout.LayoutParams rightArrowLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            rightArrowLayoutParams.weight = 0.5f;
+            rightArrowLayoutParams.setMargins(0, 0, 20, 0);
+            rightArrow.setLayoutParams(rightArrowLayoutParams);
+            container.addView(rightArrow);
+            view.setBackgroundColor(Color.BLACK);
+            container.addView(view);
+            textLinearLayoutParams.weight = 9.5f;
+            textLinearLayout.setPadding(20, 0, 0, 0);
+            LinearLayout emptyLinearLayout = new LinearLayout(this);
+            emptyLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 0.5f));
+            forData.addView(emptyLinearLayout);
+            forData.addView(textLinearLayout);
+        } else if(result.isFirst() && !result.isLast()) {
+            viewLayoutParams.weight = 9.5f;
+            rightArrow = new ImageView(this);
+            rightArrow.setImageDrawable(getResources().getDrawable(R.drawable.arrow_right));
+            LinearLayout.LayoutParams rightArrowLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            rightArrowLayoutParams.weight = 0.5f;
+            rightArrowLayoutParams.gravity = Gravity.RIGHT | Gravity.BOTTOM;
+            rightArrowLayoutParams.setMargins(20, 0, 0, 0);
+            rightArrow.setLayoutParams(rightArrowLayoutParams);
+            textLinearLayoutParams.weight = 9.5f;
+            textLinearLayout.setPadding(0, 0, 20, 0);
+            LinearLayout emptyLinearLayout = new LinearLayout(this);
+            emptyLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 0.5f));
+            view.setBackgroundColor(Color.BLACK);
+            forData.addView(textLinearLayout);
+            forData.addView(emptyLinearLayout);
+            container.addView(view);
+            container.addView(rightArrow);
+        } else if(!result.isFirst() && !result.isLast()) {
+            viewLayoutParams.weight = 9;
+            ImageView leftArrow = new ImageView(this);
+            leftArrow.setImageDrawable(getResources().getDrawable(R.drawable.arrow_left));
+            LinearLayout.LayoutParams leftArrowLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            leftArrowLayoutParams.weight = 0.5f;
+            leftArrowLayoutParams.gravity = Gravity.LEFT | Gravity.BOTTOM;
+            leftArrowLayoutParams.setMargins(0, 0, 20, 0);
+            leftArrow.setLayoutParams(leftArrowLayoutParams);
+            rightArrow = new ImageView(this);
+            rightArrow.setImageDrawable(getResources().getDrawable(R.drawable.arrow_right));
+            LinearLayout.LayoutParams rightArrowLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            rightArrowLayoutParams.weight = 0.5f;
+            rightArrowLayoutParams.gravity = Gravity.RIGHT | Gravity.BOTTOM;
+            rightArrowLayoutParams.setMargins(20, 0, 0, 0);
+            rightArrow.setLayoutParams(rightArrowLayoutParams);
+
+            LinearLayout emptyLinearLayout = new LinearLayout(this);
+            emptyLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 0.5f));
+            textLinearLayoutParams.weight = 9f;
+            textLinearLayout.setPadding(20, 0, 20, 0);
+            LinearLayout emptyLinearLayout2 = new LinearLayout(this);
+            emptyLinearLayout2.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 0.5f));
+            view.setBackgroundColor(Color.BLACK);
+            forData.addView(emptyLinearLayout);
+            forData.addView(textLinearLayout);
+            forData.addView(emptyLinearLayout2);
+            container.addView(leftArrow);
+            container.addView(view);
+            container.addView(rightArrow);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.helpIcon:
+                break;
+            case R.id.logoutIcon:
+                break;
+            case R.id.refreshIcon:
+                progressDialog = new ProgressDialog(this);
+                progressDialog.setMessage(getString(R.string.pdRefreshData));
+                progressDialog.show();
+                ExecuteInBackground refreshData = new ExecuteInBackground(this);
+                refreshData.execute(Constants.ID_REFRESH_DATA, result.getInt(result.getColumnIndex(DBConstants.RESOURCE_QR_ID)), result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_PROFILE_ID)));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_with_update, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void setVideo(String URL) {
+        // Se inicializa el vídeo con la clave de desarrollador obtenida
+        youTubePlayerView.initialize(DEVELOPER_KEY, this);
+        // Se comprueba que la URL se corresponde con un vídeo de youtube
+        if(!URL.startsWith("http://www.youtube.com/")) {
+            // Error. La URL no se corresponde con un vídeo de YouTube
+            FrequentMethods.invalidYoutubeURL(this);
+        } else {
+            // Se obtiene el identificador del vídeo dividiendo la URL en dos partes
+            video = URL.substring(URL.lastIndexOf("v=") + 2);
+        }
+    }
+
+    /**
+     * Da valor a la imagen del recurso
+     * @param bitmap la imagen una vez descargada de Internet
+     */
+    public void setImageView(Bitmap bitmap) {
+        // Cierra el diálogo que se abre al intentar obtener la imagen
+        progressDialog.dismiss();
+        this.newImageView.setImageBitmap(bitmap);
+        profile.setVisibility(View.VISIBLE);
+        newImageView.setVisibility(View.VISIBLE);
+        title.setVisibility(View.VISIBLE);
+    }
+    private void getReferences() {
+        llHomeScreenLayout = (LinearLayout) findViewById(R.id.llHomeScreenLayout);
+    }
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean b) {
+        player.cueVideo(video);
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(result != null) {
+            result.close();
+        }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        float eventX = event.getX();
+        float eventY = event.getY();
+        float dx, dy;
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                x1 = eventX;
+                y1 = eventY;
+                return true;
+            case MotionEvent.ACTION_UP:
+                dx = eventX - x1;
+                dy = eventY - y1;
+                if(Math.abs(dx) > Math.abs(dy)) {
+                    if(dx > 0) {
+                        if(!result.isFirst() && result.moveToPrevious()) {
+                            drawLayout();
+                        }
+                        Log.i("Home Activity Movement", "Se ha hecho un gesto hacia la derecha; creando el layout del elemento anterior de la base de datos");
+                    } else {
+                        if(!result.isLast() && result.moveToNext()) {
+                            drawLayout();
+                        }
+                        Log.i("Home Activity Movement", "Se ha hecho un gesto hacia la izquierda; creando el layout del siguiente elemento de la base de datos");
+                    }
+                } else {
+                    if(dy > 0) {
+                        Log.e("DIRECTION", "abajo");
+                    } else {
+                        Log.e("DIRECTION", "arriba");
+                    }
+                }
+                return true;
+        }
+        return true;
+    }
+
+    public void refreshObtained(JSONObject jsonResult) {
+        progressDialog.dismiss();
+        try {
+            String success = jsonResult.getString("success");
+            if(success.equals("OK")) {
+                // Almacena los datos en la base de datos, obteniendo los datos de la colección y del recurso
+                String name, info, URL, contentType, collectionName, collectionCreatedAt;
+                int resourceID, viewCounter, collectionID, collectionIdUser, comments;
+                collectionID = jsonResult.getInt("collectionID");
+                collectionIdUser = jsonResult.getInt("collection_userID");
+                collectionCreatedAt = jsonResult.getString("collection_created_at");
+                collectionName = jsonResult.getString("collection_name");
+                contentType = jsonResult.getString("content_type");
+                name = jsonResult.getString("name");
+                info = jsonResult.getString("info").equals("null") ? "" : jsonResult.getString("info");
+                URL = jsonResult.getString("uri");
+                resourceID = jsonResult.getInt("resourceID");
+                viewCounter = jsonResult.getString("view_counter").equals("null") ? 0 : jsonResult.getInt("view_counter");
+                comments = jsonResult.getString("resource_comments").equals("null") ? 0 : jsonResult.getInt("resource_comments");
+                FrequentQuerys.insertTagAndGetCollection(this,
+                        result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_ID)),
+                        resourceID, name,
+                        info,
+                        URL,
+                        viewCounter,
+                        contentType,
+                        result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_PROFILE_NAME)),
+                        result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_PROFILE_ID)),
+                        collectionID,
+                        collectionName,
+                        collectionCreatedAt,
+                        collectionIdUser,
+                        comments);
+                if(result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_VIEWS)) != viewCounter)
+                    textViewCounter.setText(getString(R.string.text_view_counter) + " " + viewCounter + " (" + String.valueOf(viewCounter - result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_VIEWS))) + " " + getString(R.string.textNewViewCounter) + ").");
+                if(result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_COMMENTS)) != viewCounter)
+                    textCommentsCounter.setText(getString(R.string.text_comments_counter) + " " + comments + " (" + String.valueOf(comments - result.getInt(result.getColumnIndex(DBConstants.RESOURCE_TABLE_COMMENTS))) + " " + getString(R.string.textNew) + ").");
+            }
+        } catch(JSONException e) {
+
+        }
+    }
+
+    private class GetImage extends AsyncTask<Object, Void, Object> {
+
+        private HomeActivity home;
+
+        public GetImage(HomeActivity homeActivity) {
+            this.home = homeActivity;
+        }
+        @Override
+        protected void onPostExecute(Object aVoid) {
+            super.onPostExecute(aVoid);
+            home.setImageView((Bitmap) aVoid);
+        }
+
+        @Override
+        protected Object doInBackground(Object... params) {
+            switch((Integer)params[0]) {
+                case 0: // image
+                    try {
+                        return BitmapFactory.decodeStream((InputStream) new URL((String) (params[1])).getContent());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+
+            return null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode,resultCode,intent);
+        if (requestCode == 0) { // Escaneo QR
+            if (resultCode == RESULT_OK) {  // Resultado correcto
+                if(intent.getStringExtra(Constants.SCAN_RESULT_EXTRA).equals("QR_CODE")) {
+                    FrequentMethods.launchSelectProfileActivity(this, intent.getStringExtra("SCAN_RESULT"));
+                } else {
+                    Log.d("SCANQR finished", "Not QR Code");
+                }
+            }
+        }
+    }
+}

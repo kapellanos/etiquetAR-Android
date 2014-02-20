@@ -1,0 +1,84 @@
+package es.uc3m.moc.etiquetar.utilities.database;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+
+/**
+ * FrequentQuerys
+ *
+ * @author JumTech
+ * @version 1.0
+ *          <p/>
+ *          6/25/13
+ *          <Class Description>
+ */
+public class FrequentQuerys {
+
+    public static void insertTagAndGetCollection(Context context, JSONObject resourceData, JSONObject collectionData, int profileID, String profileName) {
+        SQLiteDatabase sqLiteDatabase = DBManager.getOpenedDatabase(context);
+        String resourceName, resourceInfo, resourceURL, resourceContentType, collectionName, collectionCreatedAt;
+        int resourceID, collectionID, userID;
+        try {
+            resourceName = resourceData.getString("name");
+            resourceInfo = resourceData.getString("info");
+            resourceURL = resourceData.getString("uri");
+            resourceContentType = resourceData.getString("content_type");
+            resourceID = resourceData.getInt("resource_id");
+
+            collectionName = collectionData.getString("name");
+            collectionID = collectionData.getInt("id");
+            collectionCreatedAt = collectionData.getString("created_at");
+            userID = collectionData.getInt("user_id");
+
+            ContentValues resourceContentValues = new ContentValues();
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_CONTENT_TYPE, resourceContentType);
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_ID, resourceID);
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_INFO, resourceInfo);
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_URI, resourceURL);
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_NAME, resourceName);
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_ID, profileID);
+            resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_NAME, profileName);
+            try {
+                sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
+            } catch (SQLiteConstraintException e) {
+                Log.d("SQLite", "Error insertando un nuevo registro (ya existe; ignorándolo");
+            }
+
+            ContentValues collectionContentValues = new ContentValues();
+            collectionContentValues.put(DBConstants.COLLECTION_TABLE_NAME, collectionName);
+            collectionContentValues.put(DBConstants.COLLECTION_TABLE_ID, collectionID);
+            collectionContentValues.put(DBConstants.COLLECTION_TABLE_CREATED_AT, collectionCreatedAt);
+            collectionContentValues.put(DBConstants.COLLECTION_TABLE_USER_ID, userID);
+            try {
+                sqLiteDatabase.insert(DBConstants.COLLECTION_TABLE, null, collectionContentValues);
+            } catch (SQLiteConstraintException e) {
+                Log.d("SQLite", "Error insertando un nuevo registro (ya existe; ignorándolo");
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Cursor getResources(Context context) {
+        SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+        Cursor result = db.query(DBConstants.RESOURCE_TABLE,
+                DBConstants.RESOURCE_COLUMNS,
+                null,
+                null,
+                null,
+                null,
+                null);
+        return result;
+    }
+}

@@ -1,0 +1,242 @@
+/**
+ * HomeActivity.java
+ *
+ * 13/09/13
+ *
+ * <definicion de la clase>
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.activities;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+import es.uc3m.moc.etiquetar.R;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+import es.uc3m.moc.etiquetar.utilities.database.FrequentQuerys;
+import es.uc3m.moc.etiquetar.utilities.general.FrequentMethods;
+import es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground;
+import es.uc3m.moc.etiquetar.utilities.layout.LinearLayoutOutlined;
+
+public class HomeActivity extends YouTubeBaseActivity implements
+        YouTubePlayer.OnInitializedListener {
+
+    private LinearLayout llHomeScreenLayout;
+    private ImageView newImageView;
+    private YouTubePlayerView youTubePlayerView;
+    private final String DEVELOPER_KEY = "AIzaSyAF-Uv4jtp15zqEi2M9HZ8E_V-Ton7S-FY";
+    private String video;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity_home);
+        getReferences();
+        drawLayout();
+    }
+
+    private void drawLayout() {
+        Cursor result = FrequentQuerys.getResources(getApplicationContext());
+        LinearLayoutOutlined outlined = null;
+        HorizontalScrollView horizontalScrollView = new HorizontalScrollView(this);
+        LinearLayout.LayoutParams prueba = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
+        prueba.weight = 5f;
+        horizontalScrollView.setLayoutParams(prueba);
+        LinearLayout normal = new LinearLayout(this);
+        normal.setOrientation(LinearLayout.HORIZONTAL);
+        normal.setWeightSum(10);
+        boolean existResults = false;
+        while(result.moveToNext()) {
+            existResults = true;
+            outlined = new LinearLayoutOutlined(this);
+            // Obtiene el tipo de recurso almacenado en la base de datos
+            String contentType = result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_CONTENT_TYPE));
+
+            LinearLayoutOutlined.LayoutParams outlinedParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+            outlined.setOrientation(LinearLayout.VERTICAL);
+            outlined.setPadding(10, 10, 10, 10);
+            outlinedParams.weight = 5f;
+            outlinedParams.setMargins(0, 0, 40, 0);
+            outlined.setLayoutParams(outlinedParams);
+
+            if(contentType.equals("image")) {
+                // Obtain the image
+                newImageView = new ImageView(this);
+                TextView title = new TextView(this);
+                title.setText(result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_NAME)));
+//                title.setLayoutParams(titleViewParams);
+                title.setGravity(Gravity.CENTER);
+                title.setTypeface(null, Typeface.BOLD);
+                title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                outlined.addView(title);
+                outlined.addView(newImageView);
+                GetImage getImage = new GetImage(this);
+                getImage.execute(0, result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_URI)), newImageView, this);
+
+            } else if(contentType.equals("video")) {
+                TextView title = new TextView(this);
+                title.setText(result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_NAME)));
+//                title.setLayoutParams(titleViewParams);
+                title.setGravity(Gravity.CENTER);
+                title.setTypeface(null, Typeface.BOLD);
+                title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                title.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        HomeActivity.this.finish();
+                    }
+                });
+                outlined.addView(title);
+                youTubePlayerView = new YouTubePlayerView(this);
+                outlined.addView(youTubePlayerView);
+                setVideo(result.getString(result.getColumnIndex(DBConstants.RESOURCE_TABLE_URI)));
+            } else {
+                // Tipo texto
+            }
+            normal.addView(outlined);
+        }
+        if(!existResults) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.no_tags_title)
+                    .setMessage(R.string.no_tags)
+                    .setPositiveButton(R.string.scan, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent("es.uc3m.moc.etiquetar.qrlecture.SCAN");
+                            intent.putExtra("SCAN_MODE", "QR_CODE_MODE,PRODUCT_MODE");
+                            startActivityForResult(intent, 0);
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            HomeActivity.this.finish();
+                        }
+                    })
+                    .setCancelable(false)
+                    .show();
+        } else {
+            horizontalScrollView.addView(normal);
+            llHomeScreenLayout.addView(horizontalScrollView);
+        }
+
+    }
+
+    private void setVideo(String URL) {
+        // Se inicializa el vídeo con la clave de desarrollador obtenida
+        youTubePlayerView.initialize(DEVELOPER_KEY, this);
+        // Se comprueba que la URL se corresponde con un vídeo de youtube
+        if(!URL.startsWith("http://www.youtube.com/")) {
+            // Error. La URL no se corresponde con un vídeo de YouTube
+//            showAlertDialog(getResources().getString(R.string.alertDialogErrorURLVideoTitle), getResources().getString(R.string.alertDialogErrorURLVideo));
+        } else {
+            // Se obtiene el identificador del vídeo dividiendo la URL en dos partes
+            video = URL.substring(URL.lastIndexOf("v=") + 2);
+        }
+    }
+
+    public void setImageView(Bitmap bitmap) {
+        this.newImageView.setImageBitmap(bitmap);
+    }
+    private void getReferences() {
+        llHomeScreenLayout = (LinearLayout) findViewById(R.id.llHomeScreenLayout);
+    }
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean b) {
+        player.cueVideo(video);
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+    }
+
+    private class GetImage extends AsyncTask<Object, Void, Object> {
+
+        private HomeActivity home;
+
+        public GetImage(HomeActivity homeActivity) {
+            this.home = homeActivity;
+        }
+        @Override
+        protected void onPostExecute(Object aVoid) {
+            super.onPostExecute(aVoid);
+            home.setImageView((Bitmap) aVoid);
+        }
+
+        @Override
+        protected Object doInBackground(Object... params) {
+            switch((Integer)params[0]) {
+                case 0: // image
+                    try {
+                        Bitmap result = BitmapFactory.decodeStream((InputStream) new URL((String) (params[1])).getContent());
+                        return result;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+
+            return null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode,resultCode,intent);
+        if (requestCode == 0) { // Escaneo QR
+            if (resultCode == RESULT_OK) {  // Resultado correcto
+                if(intent.getStringExtra(Constants.SCAN_RESULT_EXTRA).equals("QR_CODE")) {
+                    // Obtiene la URL resultado del código QR, comprueba si es válida y lanza una nueva actividad para mostrar el contenido
+                    String otherText = intent.getStringExtra("SCAN_RESULT");
+                    if(FrequentMethods.isValidURL(otherText)) {
+                        Intent selectProfileActivity = new Intent(HomeActivity.this, SelectProfileActivity.class);
+                        selectProfileActivity.putExtra(Constants.URL_QR_EXTRA, otherText);
+                        startActivity(selectProfileActivity);
+                    } else {
+                    }
+
+                    Log.d("SCANQR finished", "ScanQR Result: URL = " + otherText);
+                } else {
+                    Log.d("SCANQR finished", "Not QR Code");
+                }
+
+            } else if (resultCode == RESULT_CANCELED) {
+            }
+        }
+    }
+}

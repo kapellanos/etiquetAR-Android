@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/refreshIcon"
+        android:icon="@drawable/ic_action_refresh"
+        android:showAsAction="always"
+        android:title="Refrescar datos" />
+    <item
+        android:id="@+id/helpIcon"
+        android:icon="@drawable/ic_menu_help"
+        android:showAsAction="always"
+        android:title="Ayuda" />
+    <item
+        android:id="@+id/logoutIcon"
+        android:icon="@drawable/ic_menu_close_clear_cancel"
+        android:showAsAction="always"
+        android:title="Salir de la Aplicación" />
+</menu>

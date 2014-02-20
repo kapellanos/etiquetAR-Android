@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="9">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/home_button"
+                android:background="@android:color/transparent"
+                android:layout_weight="0.8"
+                android:id="@+id/ibGoHome"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/dashboard_home"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/collections_button"
+                android:background="@android:color/transparent"
+                android:id="@+id/ibGoCollections"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/dashboard_collections"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.80"
+                android:src="@drawable/scan_button"
+                android:background="@android:color/transparent"
+                android:id="@+id/ibGoScan"
+                android:layout_marginBottom="-18dp"
+                />
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/dashboard_capture_new_tag"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/comments_button"
+                android:background="@android:color/transparent"
+                android:id="@+id/ibGoComments"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/dashboard_comments"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/profile_button"
+                android:background="@android:color/transparent"
+                android:id="@+id/ibGoProfile"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/dashboard_profile"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

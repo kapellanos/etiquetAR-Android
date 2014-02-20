@@ -1,0 +1,31 @@
+package es.uc3m.moc.etiquetar.utilities.database;
+
+import android.content.Context;
+import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteOpenHelper;
+
+/**
+ * DBHelper
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ * 6/25/13
+ *
+ * Implementa una ayuda para crear la base de datos cifrada
+ */
+public class DBHelper extends SQLiteOpenHelper {
+
+    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        // Realizar
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
+
+    }
+}

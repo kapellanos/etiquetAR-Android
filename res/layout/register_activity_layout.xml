@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="40dp"
+              android:paddingRight="40dp"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:orientation="vertical"
+              tools:context=".LoginActivity"
+              android:background="#fbffff">
+
+
+
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etRegisterEmail"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/userHint"
+            android:gravity="center"
+            android:singleLine="true"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etRegisterName"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/nameHint"
+            android:gravity="center"
+            android:singleLine="true"/>
+
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etRegisterPassword"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/passwordHint"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:singleLine="true"/>
+
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etRegisterPassword2"
+            android:layout_gravity="center"
+            android:hint="@string/repeteatPasswordHint"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:singleLine="true"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registerButton"
+            android:id="@+id/bRegister"
+            android:layout_weight="1"
+            style="@style/btnStyle_black"
+            />
+    </LinearLayout>
+
+</LinearLayout>

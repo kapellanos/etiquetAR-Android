@@ -1,0 +1,32 @@
+/**
+ * FrequentMethods.java
+ *
+ * 19/09/13
+ *
+ * <definicion de la clase>
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ */
+package es.uc3m.moc.etiquetar.utilities.general;
+
+import android.app.AlertDialog;
+import android.content.Context;
+
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+
+public abstract class FrequentMethods {
+
+    /**
+     * Comprueba si la URL pertenece a etiquetAR
+     * @param URL la URL a verificar
+     * @return true en caso de que pertenezca; false en caso de que no sea una URL válida
+     */
+    public static boolean isValidURL(String URL) {
+        if(URL.startsWith(Constants.URL_BASE))
+            return true;
+        else
+            return false;
+    }
+}

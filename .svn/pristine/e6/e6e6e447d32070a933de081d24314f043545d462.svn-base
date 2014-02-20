@@ -1,0 +1,130 @@
+/**
+ * DashboardActivity.java
+ *
+ * 13/09/13
+ *
+ * <definicion de la clase>
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.activities;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageButton;
+
+import es.uc3m.moc.etiquetar.R;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.general.FrequentMethods;
+
+public class DashboardActivity extends Activity {
+
+    private ImageButton ibGoHome;
+    private ImageButton ibGoCollections;
+    private ImageButton ibGoScan;
+    private ImageButton ibGoComments;
+    private ImageButton ibGoProfile;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dashboard_layout);
+        getReferences();
+        createListeners();
+    }
+
+    /**
+     * Crea las escuchas de los botones del dashboard
+     */
+    private void createListeners() {
+        ibGoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ibGoCollections.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, CollectionsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ibGoScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("es.uc3m.moc.etiquetar.qrlecture.SCAN");
+                intent.putExtra("SCAN_MODE", "QR_CODE_MODE,PRODUCT_MODE");
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        ibGoComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, CommentsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ibGoProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Obtiene las referencias a los elementos del layout
+     */
+    private void getReferences() {
+        ibGoHome = (ImageButton) findViewById(R.id.ibGoHome);
+        ibGoCollections = (ImageButton) findViewById(R.id.ibGoCollections);
+        ibGoScan = (ImageButton) findViewById(R.id.ibGoScan);
+        ibGoComments = (ImageButton) findViewById(R.id.ibGoComments);
+        ibGoProfile = (ImageButton) findViewById(R.id.ibGoProfile);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode,resultCode,intent);
+        if (requestCode == 0) { // Escaneo QR
+            if (resultCode == RESULT_OK) {  // Resultado correcto
+                if(intent.getStringExtra(Constants.SCAN_RESULT_EXTRA).equals("QR_CODE")) {
+                    // Obtiene la URL resultado del código QR, comprueba si es válida y lanza una nueva actividad para mostrar el contenido
+                    String otherText = intent.getStringExtra("SCAN_RESULT");
+                    if(FrequentMethods.isValidURL(otherText)) {
+                        Intent selectProfileActivity = new Intent(DashboardActivity.this, SelectProfileActivity.class);
+                        selectProfileActivity.putExtra(Constants.URL_QR_EXTRA, otherText);
+                        startActivity(selectProfileActivity);
+                    } else {
+                    }
+
+                    Log.d("SCANQR finished", "ScanQR Result: URL = " + otherText);
+                } else {
+                    Log.d("SCANQR finished", "Not QR Code");
+                }
+
+            } else if (resultCode == RESULT_CANCELED) {
+            }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+}

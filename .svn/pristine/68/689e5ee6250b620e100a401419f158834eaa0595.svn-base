@@ -1,0 +1,453 @@
+package es.uc3m.moc.etiquetar.utilities.http;
+
+import android.app.Activity;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.net.URL;
+
+import es.uc3m.moc.etiquetar.LoginActivity;
+import es.uc3m.moc.etiquetar.RegisterActivity;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.HomeActivity;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.ImageResourceActivity;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments.ResourceCommentsActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+
+/**
+ * ExecuteInBackground
+ *
+ * @author Miguel Olmedo
+ * @version 1.0
+ * 6/25/13
+ *
+ * Ejecutará una serie de tareas en segundo plano (necesario en ocasiones para dejar libre el hilo principal en caso de operaciones de red)
+ */
+public class ExecuteInBackground extends AsyncTask<Object, Void, Object> {
+
+    // Variables que almacenarán las actividades que ejecutarán las tareas en segundo plano
+    private RegisterActivity registerActivityCalling;
+    private LoginActivity loginActivityCalling;
+    private SelectProfileActivity selectProfileActivityCalling;
+    private ResourceCommentsActivity resourceCommentsActivity;
+    private ImageResourceActivity imageResourceActivity;
+    private HomeActivity homeActivity;
+
+    public ExecuteInBackground (Activity callingActivity) {
+//        if(callingActivity instanceof NormalUserMainActivity) {
+//            this.normalUserActivityCalling = (NormalUserMainActivity) callingActivity;
+        if(callingActivity instanceof RegisterActivity)
+            registerActivityCalling = (RegisterActivity) callingActivity;
+        else if(callingActivity instanceof LoginActivity)
+            loginActivityCalling = (LoginActivity) callingActivity;
+        else if(callingActivity instanceof SelectProfileActivity)
+            selectProfileActivityCalling = (SelectProfileActivity) callingActivity;
+        else if(callingActivity instanceof ResourceCommentsActivity)
+            resourceCommentsActivity = (ResourceCommentsActivity) callingActivity;
+        else if(callingActivity instanceof  ImageResourceActivity)
+            imageResourceActivity = (ImageResourceActivity) callingActivity;
+        else if(callingActivity instanceof HomeActivity)
+            homeActivity = (HomeActivity) callingActivity;
+    }
+
+    @Override
+    protected Object doInBackground(Object... params) {
+        // Obtiene el identificador de la acción a realizar
+        switch((Integer)params[0]) {
+            case Constants.ID_EXECUTE_LOGIN:
+                return executeLogin(String.valueOf(params[1]), String.valueOf(params[2]));
+            case Constants.ID_GET_IMAGE:
+                return executeGetInternetImage(String.valueOf(params[1]));
+            case Constants.ID_REGISTER:
+                return executeRegister(String.valueOf(params[1]),String.valueOf(params[2]), String.valueOf(params[3]));
+            case Constants.ID_GET_PROFILES:
+                return executeGetProfiles((Integer)(params[1]));
+            case Constants.ID_GET_RESOURCE:
+                return executeGetResource((Integer) (params[1]), (Integer) (params[2]));
+            case Constants.ID_GET_COMMENTS:
+                return executeGetComments((Integer) (params[1]));
+            case Constants.ID_PUT_COMMENT:
+                return executePutComments((Integer) (params[1]), String.valueOf(params[2]), (String) params[3]);
+            case Constants.ID_REPLY_COMMENT:
+                return executeReplyComment((Integer) (params[1]), String.valueOf(params[2]), (String) params[3], (Integer) (params[4]), (Integer) (params[5]));
+            case Constants.ID_GET_RESPONSES:
+                return executeGetResponses((Integer) params[1]);
+            case 24:
+                return pruebaJsonRails();
+        }
+        return null;
+    }
+
+    private Object pruebaJsonRails() {
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("PAM", 24);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al realizar la petición de respuestas a un determinado comentario");
+            e.printStackTrace();
+        }
+        jsonArray.put(jsonObject);
+        Post.doPost("http://morning-escarpment-1652.herokuapp.com/android_app/login", jsonArray);
+        return null;
+    }
+
+    private Object executeGetResponses(Integer id) {
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_GET_RESPONSES;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_COMMENT_ID, id);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al realizar la petición de respuestas a un determinado comentario");
+            e.printStackTrace();
+        }
+        jsonArray.put(jsonObject);
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_RESPONSES_COMMENT, jsonArray);
+        if(resultArray != null) {
+            results[1] = resultArray;
+            return results;
+        } else {
+            // Si no hay comentarios de un recurso determinado, hay que marcarlo de alguna manera
+            results[1] = null;
+        }
+        return results;
+    }
+
+    private Object executeReplyComment(Integer resourceID, String comment, String name, Integer commentID, int numberResponses) {
+        Object [] results = new Object[3];
+        results[0] = Constants.ID_REPLY_COMMENT;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_RESOURCE_ID, resourceID);
+            jsonObject.put(Constants.JSON_COMMENT, comment);
+            jsonObject.put(Constants.JSON_COMMENT_ID, commentID);
+            jsonObject.put(Constants.JSON_COMMENT_RESPONSES, ++numberResponses);
+            if(name == null)
+                jsonObject.put(Constants.JSON_USER_NAME, null);
+            else
+                jsonObject.put(Constants.JSON_USER_NAME, name);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al enviar un nuevo comentario al servidor");
+            e.printStackTrace();
+        }
+
+        jsonArray.put(jsonObject);
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_REPLY_COMMENT, jsonArray);
+        if(resultArray != null) {
+            try {
+                JSONObject jsonData = resultArray.getJSONObject(0);
+                // Se obtiene el resultado del acceso
+                String success = jsonData.getString(Constants.JSON_SUCCESS);
+                // Si correcto...
+                if(success.equals("OK")) {
+                    Log.d(Constants.JSON_SUCCESS, "Replica al comentario almacenada en el servidor");
+                    results[1] = 0;
+                } else {
+                    results[1] = -1;
+                }
+            } catch(JSONException e) {
+                Log.e(Constants.LOG_JSON_ERROR, "Error parseando el objeto JSON de respuesta");
+                e.printStackTrace();
+            }
+        }
+        return results;
+    }
+
+    /**
+     * Almacena un nuevo comentario en la base de datos del servidor
+     *
+     * @param resourceId el identificador del recurso
+     * @param comment el comentario ha almacenar en la base de datos
+     * @param name el nombre del usuario; null en caso de anónimo
+     * @return 0 si OK; -1 en caso contrario
+     */
+    private Object executePutComments(Integer resourceId, String comment, String name) {
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_PUT_COMMENT;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_RESOURCE_ID, resourceId);
+            jsonObject.put(Constants.JSON_COMMENT, comment);
+            if(name == null)
+                jsonObject.put(Constants.JSON_USER_NAME, null);
+            else
+                jsonObject.put(Constants.JSON_USER_NAME, name);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al enviar un nuevo comentario al servidor");
+            e.printStackTrace();
+        }
+
+        jsonArray.put(jsonObject);
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_PUT_COMMENT, jsonArray);
+        if(resultArray != null) {
+            try {
+                JSONObject jsonData = resultArray.getJSONObject(0);
+                // Se obtiene el resultado del acceso
+                String success = jsonData.getString(Constants.JSON_SUCCESS);
+                // Si correcto...
+                if(success.equals("OK")) {
+                    Log.d(Constants.JSON_SUCCESS, "Nuevo comentario almacenado en el servidor");
+                    results[1] = 0;
+                } else {
+                    results[1] = -1;
+                }
+            } catch(JSONException e) {
+                Log.e(Constants.LOG_JSON_ERROR, "Error parseando el objeto JSON de respuesta");
+                e.printStackTrace();
+            }
+        }
+        return results;
+    }
+
+    /**
+     * Obtiene los comentarios asociados a un recurso
+     *
+     * @param resourceID el identificador del recurso
+     * @return un array de objetos con el resultado de la operación
+     */
+    private Object executeGetComments(Integer resourceID) {
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_GET_COMMENTS;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_RESOURCE_ID, resourceID);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al realizar la petición de recursos asociados a un determinado QR y perfil");
+            e.printStackTrace();
+        }
+        jsonArray.put(jsonObject);
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_RESOURCE_COMMENT, jsonArray);
+        if(resultArray != null) {
+            // Solo debe de existir un recurso por cada código QR y perfil (si no, como eliges??)
+            results[1] = resultArray;
+            return results;
+        } else {
+            // Si no hay comentarios de un recurso determinado, hay que marcarlo de alguna manera
+            results[1] = null;
+        }
+        return null;
+    }
+
+    /**
+     * Obtiene el recurso asociado a un determinado QR y a un determinado perfil
+     *
+     * @param qrID el identificador del QR
+     * @param profileID el identificador del perfil
+     * @return un array de objetos con el resultado de la operación
+     */
+    private Object executeGetResource(int qrID, Integer profileID) {
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_GET_RESOURCE;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_QR_ID_PARAM, qrID);
+            jsonObject.put(Constants.JSON_PROFILE_ID_PARAM, profileID);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al realizar la petición de recursos asociados a un determinado QR y perfil");
+            e.printStackTrace();
+        }
+        jsonArray.put(jsonObject);
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_RESOURCE, jsonArray);
+        if(resultArray != null) {
+            // Solo debe de existir un recurso por cada código QR y perfil (si no, como eliges??)
+            try {
+                results[1] = resultArray.getJSONObject(0);
+                return results;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Realiza una petición al servidor para obtener los perfiles asociados a un determinado código QR
+     * @param id el identificador del código QR
+     * @return un array de objetos con el resultado de la operación
+     */
+    private Object executeGetProfiles(Integer id) {
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_GET_PROFILES;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_QR_ID_PARAM, id);
+        } catch (JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON al realizar la petición de perfiles de un código QR");
+            e.printStackTrace();
+        }
+        jsonArray.put(jsonObject);
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_PROFILES, jsonArray);
+        if(resultArray != null) {
+            results[1] = resultArray;
+            return results;
+        }
+        return null;
+    }
+
+    private Object executeGetInternetImage(String url) {
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_GET_IMAGE;
+        try {
+            results[1] = BitmapFactory.decodeStream((InputStream) new URL(url).getContent());
+            return results;
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Ejecuta el acceso a la aplicación contra el servidor
+     *
+     * @param user el usuario que intenta acceder a la aplicación
+     * @param pass la contraseña asociada al usuario
+     * @return 0 si el acceso ha tenido éxito; cualquier otro número en caso contrario
+     */
+    private Object executeLogin(String user, String pass) {
+        // Variable que almacenará el resultado de identificarse con el servidor
+        // La primera posición será la petición y la segunda el resultado
+        Object [] results = new Object[3];
+        results[0] = Constants.ID_EXECUTE_LOGIN;
+        // Crea un array de objetos JSON para almacenar las variables
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_USER_PARAM, user);
+            jsonObject.put(Constants.JSON_PASSWORD_PARAM, pass);
+        } catch(JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON");
+            e.printStackTrace();
+        }
+        // Se añade el objeto creado al array JSON
+        jsonArray.put(jsonObject);
+        // Llamada a servidor
+        // Realiza la petición POST y almacena el JSON resultado en una variable
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_LOGIN, jsonArray);
+        // Se comprueba la respuesta del servidor
+        if(resultArray != null && resultArray.length() > 0) {
+            // Obtiene los datos del array
+            try {
+                JSONObject jsonData = resultArray.getJSONObject(0);
+                // Se obtiene el resultado del acceso
+                String success = jsonData.getString(Constants.JSON_SUCCESS);
+                String name = jsonData.getString(Constants.JSON_USER_NAME);
+                // Si correcto...
+                if(success.equals("OK")) {
+                    Log.d(Constants.JSON_SUCCESS, "Login correcto");
+                    results[1] = 0;
+                    results[2] = name;
+                } else {
+                    results[1] = -1;
+                }
+            } catch(JSONException e) {
+                Log.e(Constants.LOG_JSON_ERROR, "Error parseando el objeto JSON de respuesta");
+                e.printStackTrace();
+            }
+        }
+        return results;
+    }
+
+    private Object executeRegister (String email, String name, String password) {
+        // Variable que almacenará el resultado de identificarse con el servidor
+        // La primera posición será la petición y la segunda el resultado
+        Object [] results = new Object[2];
+        results[0] = Constants.ID_REGISTER;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Constants.JSON_USER_PARAM, email);
+            jsonObject.put(Constants.JSON_USER_NAME, name);
+            jsonObject.put(Constants.JSON_PASSWORD_PARAM, password);
+        } catch(JSONException e) {
+            Log.e(Constants.LOG_JSON_ERROR, "Error parseando el fichero JSON");
+            e.printStackTrace();
+        }
+        // Se añade el objeto creado al array JSON
+        jsonArray.put(jsonObject);
+        // Llamada a servidor
+        // Realiza la petición POST y almacena el JSON resultado en una variable
+        JSONArray resultArray = Post.doPost(Constants.URL_SERVER_REGISTER, jsonArray);
+        // Se comprueba la respuesta del servidor
+        if(resultArray != null && resultArray.length() > 0) {
+            // Obtiene los datos del array
+            try {
+                JSONObject jsonData = resultArray.getJSONObject(0);
+                // Se obtiene el resultado del acceso
+                String success = jsonData.getString(Constants.JSON_SUCCESS);
+                // Si correcto...
+                if(success.equals("OK")) {
+                    Log.d(Constants.JSON_SUCCESS, "Register OK");
+                    results[1] = 0;
+                } else {
+                    results[1] = -1;
+                }
+            } catch(JSONException e) {
+                Log.e(Constants.LOG_JSON_ERROR, "Error parseando el objeto JSON de respuesta");
+                e.printStackTrace();
+            }
+        }
+        return results;
+    }
+    @Override
+    protected void onPostExecute(Object result) {
+        super.onPostExecute(result);
+        Object [] results = (Object []) result;
+        int process = (Integer) results[0];
+        switch (process) {
+            // Constantes de ejecución de tareas en segundo plano
+            case Constants.ID_EXECUTE_LOGIN:
+                if((Integer) results[1] == 0) {
+                    // Login Ok
+                    loginActivityCalling.logOk(String.valueOf(results[2]));
+                } else {
+                    loginActivityCalling.logKo();
+                }
+                break;
+            case Constants.ID_GET_IMAGE:
+                // Tras obtener la imagen, le da valor al image view de la vista principal
+                imageResourceActivity.setResource(results[1]);
+                break;
+            case Constants.ID_REGISTER:
+                if((Integer) results[1] == 0) {
+                    // Registro OK
+                    registerActivityCalling.registerOk();
+                } else {
+                    registerActivityCalling.registerKo();
+                }
+                break;
+            case Constants.ID_GET_PROFILES:
+                selectProfileActivityCalling.profilesObtained((JSONArray) results[1]);
+                break;
+            case Constants.ID_GET_RESOURCE:
+                selectProfileActivityCalling.resourceObtained((JSONObject) results[1]);
+                break;
+            case Constants.ID_GET_COMMENTS:
+                if(results[1] != null)
+                    resourceCommentsActivity.commentsObtained((JSONArray) results[1]);
+                break;
+            case Constants.ID_PUT_COMMENT:
+                resourceCommentsActivity.commentSave((Integer) results[1]);
+                break;
+            case Constants.ID_REPLY_COMMENT:
+                resourceCommentsActivity.commentSave((Integer) results[1]);
+                break;
+            case Constants.ID_GET_RESPONSES:
+                resourceCommentsActivity.getResponse((JSONArray) results[1]);
+                break;
+                // save data
+        }
+    }
+}

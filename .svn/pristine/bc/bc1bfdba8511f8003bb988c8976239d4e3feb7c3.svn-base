@@ -1,0 +1,40 @@
+/**
+ * FrequentMethods.java
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ * 19/09/13
+ *
+ * Implementa una serie de métodos utilizados en diversas clases para evitar la duplicidad de código
+ */
+package es.uc3m.moc.etiquetar.utilities.general;
+
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+
+public abstract class FrequentMethods {
+
+    /**
+     * Comprueba si la URL pertenece a etiquetAR
+     * @param URL la URL a verificar
+     * @return true en caso de que pertenezca; false en caso de que no sea una URL válida
+     */
+    public static boolean isValidURL(String URL) {
+        return URL.startsWith(Constants.URL_BASE);
+    }
+
+    /**
+     * Parsea la fecha para mostrarla en un formato adecuado en los comentarios
+     * @param originalDate la fecha en su formato original
+     * @return un String que contiene la fecha en el formato adecuado para mostrarla
+     */
+    public static String parseDate(String originalDate) {
+        String parserDate;
+        String day, month, year;
+        String [] allDate = originalDate.split("T");
+        String [] onlyDate = allDate[0].split("-");
+        year = onlyDate[0];
+        month = onlyDate[1];
+        day = onlyDate[2];
+        parserDate = day + "/" + month + "/" + year + " a las " + allDate[1].substring(0, allDate[1].length() - 1);
+        return parserDate;
+    }
+}

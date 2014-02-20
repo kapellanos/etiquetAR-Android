@@ -1,0 +1,119 @@
+package es.uc3m.moc.etiquetar;
+
+/**
+ * LoginActivity.java
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ * 25/06/2013
+ * Implementa la actividad principal de acceso a la aplicación
+ */
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground;
+
+public class LoginActivity extends Activity {
+
+    private EditText etLoginEmail;
+    private EditText etLoginPassword;
+    private Button bEntrar;
+    private ProgressDialog pdLogin;
+    private TextView tvRegister;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login_activity_layout);
+        getReferences();
+        createListeners();
+        // TODO borrar esto; se hace para tener que evitar el login todo el rato
+//        SharedPreferences sharedPreferences =  getSharedPreferences(Constants.APP_NAME,MODE_PRIVATE);
+//        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, "Usuario de prueba").commit();
+        Intent launch = new Intent(this, DashboardActivity.class);
+        startActivity(launch);
+        finish();
+//        Intent commentsActivity = new Intent(this, ResourceCommentsActivity.class);
+//        commentsActivity.putExtra(Constants.RESOURCE_ID_EXTRA, 1);
+//        startActivity(commentsActivity);
+    }
+
+    /**
+     * Crea las escuchas de los botones y del text view para registrarse
+     */
+    private void createListeners() {
+        // Escucha para el botón de loguearse contra el servidor
+        bEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pdLogin = new ProgressDialog(LoginActivity.this);
+                pdLogin.setMessage(getString(R.string.pdLogin));
+                pdLogin.setCancelable(false);
+                pdLogin.show();
+                // Se lanza una tarea en segundo plano para ejecutar el login, enviando los credenciales al servidor utilizando la URL {@link Constants.ID_EXECUTE_LOGIN}
+                ExecuteInBackground login = new ExecuteInBackground(LoginActivity.this);
+                login.execute(Constants.ID_EXECUTE_LOGIN, etLoginEmail.getText().toString(), etLoginPassword.getText().toString());
+                // Se lanza un progress dialog para avisar al usuario de lo que se está realizando
+            }
+        });
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Se lanza la actividad de registro, sin finalizar la de login por si el usuario da para atras.
+                Intent startRegisterActivity = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(startRegisterActivity);
+            }
+        });
+    }
+
+    /**
+     * Obtiene las referencias a los objetos de la vista
+     */
+    private void getReferences() {
+        etLoginEmail = (EditText) findViewById(R.id.etLoginEmail);
+        etLoginPassword = (EditText) findViewById(R.id.etLoginPassword);
+        bEntrar = (Button) findViewById(R.id.bEntrar);
+        tvRegister = (TextView) findViewById(R.id.tvRegister);
+    }
+
+    /**
+     * Método llamado cuando se ha comprobado los credenciales y son adecuados
+      */
+    public void logOk(String userName) {
+        pdLogin.dismiss();
+        SharedPreferences sharedPreferences =  getSharedPreferences(Constants.APP_NAME,MODE_PRIVATE);
+        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, userName);
+        Intent startMainActivity = new Intent(LoginActivity.this, DashboardActivity.class);
+        startActivity(startMainActivity);
+        finish();
+    }
+
+    /**
+     * Método llamado cuando se ha encontrado un error para acceder. Se muestra un alert dialog para avisar al usuario de la situación
+     */
+    public void logKo() {
+        pdLogin.dismiss();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.errorLoginText)
+                .setCancelable(true)
+                .setTitle(getString(R.string.incorrect_login))
+                .setPositiveButton(getString(R.string.close), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create().show();
+    }
+//
+}

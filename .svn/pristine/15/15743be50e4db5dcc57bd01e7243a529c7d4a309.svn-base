@@ -1,0 +1,88 @@
+package es.uc3m.moc.etiquetar.utilities.database;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+
+/**
+ * DBHelper
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ * 6/25/13
+ *
+ * Implementa una ayuda para crear la base de datos cifrada
+ */
+public class DBHelper extends SQLiteOpenHelper {
+
+    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        // String que contiene la sentencia SQL para crear la tabla de collection
+        String sqlCollectionTable = "CREATE TABLE IF NOT EXISTS " + DBConstants.COLLECTION_TABLE + " " +
+                "(" + DBConstants.COLLECTION_TABLE_ID + " INTEGER PRIMARY KEY, " +
+                DBConstants.COLLECTION_TABLE_NAME + " TEXT, " +
+                DBConstants.COLLECTION_TABLE_CREATED_AT + " TEXT, " +
+                DBConstants.COLLECTION_TABLE_USER_ID + " INTEGER)";
+        // Realiza la sentencia SQL
+        db.execSQL(sqlCollectionTable);
+
+        // String que contiene la sentencia SQL para crear la tabla de recursos
+        String sqlResourceTable = "CREATE TABLE IF NOT EXISTS " + DBConstants.RESOURCE_TABLE + " " +
+                "(" + DBConstants.RESOURCE_TABLE_ID + " INTEGER PRIMARY KEY, " +
+                DBConstants.RESOURCE_TABLE_CONTENT_TYPE + " TEXT, " +
+                DBConstants.RESOURCE_TABLE_URI + " TEXT, " +
+                DBConstants.RESOURCE_TABLE_INFO + " TEXT, " +
+                DBConstants.RESOURCE_TABLE_NAME + " TEXT, " +
+                DBConstants.RESOURCE_TABLE_PROFILE_ID + " INTEGER, " +
+                DBConstants.RESOURCE_TABLE_PROFILE_NAME + " TEXT, " +
+                DBConstants.RESOURCE_TABLE_DATE + " INTEGER, " +
+                DBConstants.RESOURCE_TABLE_COMMENTS + " INTEGER, " +
+                DBConstants.RESOURCE_TABLE_VIEWS + " INTEGER)";
+        // Realiza la sentencia SQL
+        db.execSQL(sqlResourceTable);
+
+        // String que contiene la sentencia SQL para crear la tabla de comentarios
+        String sqlCommentsTable = "CREATE TABLE IF NOT EXISTS " + DBConstants.COMMENTS_TABLE + " " +
+                "(" + DBConstants.COMMENTS_TABLE_ID + " INTEGER PRIMARY KEY, " +
+                DBConstants.COMMENTS_TABLE_RESOURCE_ID + " INTEGER, " +
+                DBConstants.COMMENTS_TABLE_COMMENT + " TEXT, " +
+                DBConstants.COMMENTS_TABLE_RESOURCE_NAME + " TEXT)";
+        // Realiza la sentencia SQL
+        db.execSQL(sqlCommentsTable);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
+
+    }
+
+    /**
+     * Comprueba si un registro de la base de datos dado un id, un nombre de tabla, un nombre de campo y un contexto exista ya en la base de datos
+     *
+     * @param id la clave primaria de la fila que hay que comprobar
+     * @param tableName el nombre de la tabla
+     * @param idRow el nombre de la columna que se corresponde con la clave primaria de la tabla
+     * @param context contexto necesario para realizar la consulta
+     * @return true en caso de que ya exista el registro; false en caso de que no exista
+     */
+    public static boolean exist(int id, String tableName, String idRow, Context context) {
+        // Obtiene una instancia de la base de datos
+        SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+        // Realiza la consulta a la base de datos para comprobar si existe un determinado registro
+        Cursor c = db.query(tableName, null, idRow + "=?", new String[] {String.valueOf(id)}, null, null, null);
+        if(c.moveToFirst()) {
+            c.close();
+            return true;
+        } else {
+            c.close();
+            return false;
+        }
+    }
+}

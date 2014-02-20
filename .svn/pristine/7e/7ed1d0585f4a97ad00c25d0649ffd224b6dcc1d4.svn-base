@@ -1,0 +1,32 @@
+package es.uc3m.moc.etiquetar.utilities.database;
+
+import android.content.Context;
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+import net.sqlcipher.database.SQLiteDatabase;
+
+/**
+ * DBManager
+ *
+ * @author JumTech
+ * @version 1.0
+ * 6/25/13
+ *
+ * Clase que manejará una sola instancia de la base de datos
+ */
+public class DBManager {
+
+    public static SQLiteDatabase db;
+    public static DBHelper dbHelper;
+
+    public static SQLiteDatabase getOpenedDatabase(Context context, String password) {
+        if (dbHelper == null) {
+            SQLiteDatabase.loadLibs(context);
+            dbHelper = new DBHelper(context, DBConstants.DB_NAME, null, 2);
+        }
+        if (db == null) {
+            // the first time we create a database we dont pass the password. In the next times we pass it, so we dont need to generate
+            db = dbHelper.getWritableDatabase(password);
+        }
+        return db;
+    }
+}

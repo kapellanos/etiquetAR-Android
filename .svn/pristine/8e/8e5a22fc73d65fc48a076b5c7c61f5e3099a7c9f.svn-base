@@ -1,0 +1,14 @@
+package es.uc3m.moc.etiquetar.utilities.constants;
+
+/**
+ * DBConstants
+ *
+ * @author JumTech
+ * @version 1.0
+ * 6/25/13
+ *
+ * Contendrá las constants de la base de datos (nombre de la base de datos, de las tablas, de los campos...)
+ */
+public abstract class DBConstants {
+    public final static String DB_NAME = "etiquetAR_DB";
+}

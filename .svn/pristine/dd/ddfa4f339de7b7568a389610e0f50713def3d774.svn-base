@@ -1,0 +1,125 @@
+package es.uc3m.moc.etiquetar.utilities.database;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+
+/**
+ * FrequentQuerys
+ *
+ * @author JumTech
+ * @version 1.0
+ *          <p/>
+ *          6/25/13
+ *          <Class Description>
+ */
+public class FrequentQuerys {
+
+    public static void insertTagAndGetCollection(Context context, JSONObject resourceData, JSONObject collectionData, int profileID, String profileName) {
+        SQLiteDatabase sqLiteDatabase = DBManager.getOpenedDatabase(context);
+        String resourceName, resourceInfo, resourceURL, resourceContentType, collectionName, collectionCreatedAt;
+        int resourceID, collectionID, userID, views;
+        try {
+            resourceID = resourceData.getInt("resource_id");
+            resourceName = resourceData.getString("name");
+            resourceInfo = resourceData.getString("info");
+            resourceURL = resourceData.getString("uri");
+            views = resourceData.getInt("view_counter");
+            if(DBHelper.exist(resourceID, DBConstants.RESOURCE_TABLE, DBConstants.RESOURCE_TABLE_ID, context)) {
+                Log.i("DB", "Ya existe un registro con este mismo identificador en la base de datos; actualizando los datos");
+                ContentValues resourceContentValues = new ContentValues();
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_INFO, resourceInfo);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_URI, resourceURL);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_NAME, resourceName);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_NAME, profileName);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_VIEWS, views);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_DATE, System.currentTimeMillis());
+
+                sqLiteDatabase.update(DBConstants.RESOURCE_TABLE, resourceContentValues, DBConstants.RESOURCE_TABLE_ID + "= ?", new String[] {String.valueOf(resourceID) });
+            } else {
+                Log.i("DB", "Insertando un nuevo recurso en la base de datos");
+
+                resourceContentType = resourceData.getString("content_type");
+                ContentValues resourceContentValues = new ContentValues();
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_CONTENT_TYPE, resourceContentType);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_ID, resourceID);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_INFO, resourceInfo);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_URI, resourceURL);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_NAME, resourceName);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_ID, profileID);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_NAME, profileName);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_VIEWS, views);
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_DATE, System.currentTimeMillis());
+                // TODO esto se mete ahora a mano; hay ver que devuelva el número de comentarios el fichero PHP cuando se solicita el recurso
+                resourceContentValues.put(DBConstants.RESOURCE_TABLE_COMMENTS, 0);
+
+                sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
+            }
+
+            collectionID = collectionData.getInt("id");
+            if(DBHelper.exist(collectionID, DBConstants.COLLECTION_TABLE, DBConstants.COLLECTION_TABLE_ID, context)) {
+                Log.i("DB", "Ya existe un registro asociado con esa colección; actualizándo los datos");
+            } else {
+                Log.i("DB", "Insertando una nueva colección en la base de datos");
+                collectionName = collectionData.getString("name");
+                collectionCreatedAt = collectionData.getString("created_at");
+                userID = collectionData.getInt("user_id");
+                ContentValues collectionContentValues = new ContentValues();
+                collectionContentValues.put(DBConstants.COLLECTION_TABLE_NAME, collectionName);
+                collectionContentValues.put(DBConstants.COLLECTION_TABLE_ID, collectionID);
+                collectionContentValues.put(DBConstants.COLLECTION_TABLE_CREATED_AT, collectionCreatedAt);
+                collectionContentValues.put(DBConstants.COLLECTION_TABLE_USER_ID, userID);
+
+                sqLiteDatabase.insert(DBConstants.COLLECTION_TABLE, null, collectionContentValues);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Cursor getResources(Context context) {
+        SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+        Cursor result = db.query(DBConstants.RESOURCE_TABLE,
+                DBConstants.RESOURCE_COLUMNS,
+                null,
+                null,
+                null,
+                null,
+                null);
+        return result;
+    }
+
+    /**
+     * Actualiza el número de comentarios que tiene un recurso. Esto solo funcionará cuando se acceda a la página de comentarios.
+     *
+     * @param resourceID    El identificador del recurso almacenado en base de datos.
+     * @param comments      El número de comentarios del recurso.
+     * @param context       Contexto necesario para ejecutar la sentencia.
+     */
+    public static void updateNumberOfComments(int resourceID, int comments, Context context) {
+        SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+        ContentValues resourceValues = new ContentValues();
+        resourceValues.put(DBConstants.RESOURCE_TABLE_COMMENTS, comments);
+        db.update(DBConstants.RESOURCE_TABLE, resourceValues, DBConstants.RESOURCE_TABLE_ID + "=?", new String[] {String.valueOf(resourceID)});
+    }
+
+    /**
+     * Almacena un nuevo comentario en la base de datos local del móvil para mostrarlo al usuario cuando quiera consultar sus comentarios o su resumen de acciones.
+     *
+     * @param resourceID el identificador del recurso al que se corresponde el comentario
+     * @param comment el comentario completo
+     */
+    public static void saveNewComment(int resourceID, String comment, Context context) {
+        SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+
+    }
+}

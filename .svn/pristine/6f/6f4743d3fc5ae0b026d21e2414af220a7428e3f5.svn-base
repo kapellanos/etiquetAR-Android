@@ -1,0 +1,433 @@
+/**
+ * ResourceCommentsActivity.java
+ *
+ * 16/08/13
+ *
+ * Implementará la actividad de comentarios de un determinado recurso. Dicha actividad permitirá a un determinado usuario
+ * ver los comentarios asociados a un recurso, sea del tipo que sea. También permitirá a través de una serie de botones
+ * pulsar sobre "me gusta" en un comentario concreto o responder a dichos comentarios, ya sea en modo pregunta-respuesta
+ * o como réplica al contenido del comentario anterior.
+ *
+ * Por último la actividad también permitirá añadir un nuevo comentario existente sin necesidad de responder a ninguno anterior
+ * a través de un campo de texto que se encontrará en la parte inferior de la pantalla.
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.TextWatcher;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import es.uc3m.moc.etiquetar.R;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground;
+import es.uc3m.moc.etiquetar.utilities.layout.LinearLayoutOutlined;
+
+public class ResourceCommentsActivity extends Activity  {
+
+    // Progress dialog que se mostrará mientras se obtienen los comentarios
+    private ProgressDialog pdGettingComments;
+    // Progress dialog que se mostrará mientras se almacena un nuevo comentario en la base de datos del servidor
+    private ProgressDialog pdPuttingComment;
+    // Variables de layout
+    private LinearLayout llCommentsResource;
+    private JSONArray result;
+    private Button bAddNewComment;
+    private int resourceID;
+    private CheckBox cbAddNameForComment;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(savedInstanceState == null) {
+            getComments();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void getComments() {
+        pdGettingComments = new ProgressDialog(this);
+        pdGettingComments.setMessage(getString(R.string.pdGettingComments));
+        pdGettingComments.show();
+        resourceID = getIntent().getIntExtra(Constants.RESOURCE_ID_EXTRA, 0);
+        // Obtiene los comentarios del recurso asociado
+        ExecuteInBackground getComments = new ExecuteInBackground(this);
+        getComments.execute(Constants.ID_GET_COMMENTS, getIntent().getIntExtra(Constants.RESOURCE_ID_EXTRA, 0));
+    }
+    /**
+     * Método llamado cuando se reciben del servidor los comentarios de un determinado recurso
+     * @param result El array que contiene todos los comentarios y sus características
+     */
+    public void commentsObtained(JSONArray result) {
+        if(result != null)
+            this.result = result;
+        // Se cierra el progress dialog
+        if(pdGettingComments != null)
+            pdGettingComments.dismiss();
+        // Una vez recibidos los comentarios, es necesario crear de forma programática las cajas que contendrán cada uno de ellos
+        // El primer paso es obtener las referencias al layout
+        setContentView(R.layout.resource_comments_layout);
+        getReferences();
+        createListener();
+        JSONArray commentsObtained = null;
+        try {
+            // Se obtiene el JSON Array que contiene los comentarios del recurso
+            commentsObtained = result.getJSONObject(0).getJSONArray("result");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        // TODO prueba; para que todo esté equilibrado habrá que dar un peso a cada comentario pero el peso que dar a cada comentario habrá que verlo, ya que ponerlo de forma programática no es tan fácil
+        LinearLayout llForAddComments = (LinearLayout) findViewById(R.id.llForAddComments);
+        // Se recorre el array de comentarios
+        if(commentsObtained == null) {
+            // No existe ningún comentario. Se avisa al usuario a través de un AlertDialog
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.no_comments_title))
+                    .setMessage(getString(R.string.no_comments))
+                    .setPositiveButton(getString(R.string.addNewComment), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            launchNewCommentAlertDialog(true, false, null, 0, 0);
+                        }
+                    })
+                    .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            ResourceCommentsActivity.this.finish();
+                        }
+                    })
+                    .show();
+
+        } else {
+            // El bucle recorre de final a principio los comentarios para mostrar primero los más recientes
+            for(int i = commentsObtained.length() - 1; i >= 0; i--) {
+                try {
+                    final int numberResponses = commentsObtained.getJSONObject(i).getInt(Constants.JSON_COMMENT_RESPONSES);
+                    final String name = commentsObtained.getJSONObject(i).getString(Constants.JSON_COMMENT_NAME);
+                    final int id = commentsObtained.getJSONObject(i).getInt(Constants.JSON_COMMENT_ID);
+                    String date = parseDate(commentsObtained.getJSONObject(i).getString(Constants.JSON_COMMENT_DATE));
+                    // Hay que parsear la fecha.
+                    // TODO Para cada elemento, hay que añadirlo al layout. Para ello, se puede utilizar el layout personalizado, que tiene bordes. Habrá que añadir posteriormente el icono de responder a un determinado recurso y ver como representar este estado en los comentarios
+                    LinearLayoutOutlined lloForComment = (LinearLayoutOutlined) getLayoutInflater().inflate(R.layout.comment_template, null);
+                    lloForComment.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            if(numberResponses != 0) {
+                                new AlertDialog.Builder(ResourceCommentsActivity.this)
+                                        .setTitle(R.string.comment_actions_title)
+                                        .setItems(R.array.comment_actions, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                switch (which){
+                                                    case 0:
+                                                        launchGetResponses(id);
+                                                        break;
+                                                    case 1:
+                                                        launchNewCommentAlertDialog(false, true, name, id, numberResponses);
+                                                        break;
+                                                }
+                                            }
+                                        })
+                                        .show();
+                            } else {
+                                new AlertDialog.Builder(ResourceCommentsActivity.this)
+                                        .setTitle(R.string.comment_actions_title)
+                                        .setItems(R.array.comment_actions_no_responses, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                launchNewCommentAlertDialog(false, true, name, id, numberResponses);
+                                            }
+                                        })
+                                        .show();
+                            }
+
+                            return false;
+                        }
+                    });
+                    TextView tvComment = (TextView) lloForComment.getChildAt(0);
+                    LinearLayout aux = (LinearLayout) (lloForComment.getChildAt(1));
+                    TextView tvName = (TextView) aux.getChildAt(0);
+                    ImageView ivNumberResponses = (ImageView) aux.getChildAt(1);
+                    ImageView ivReply = (ImageView) aux.getChildAt(2);
+                    ivReply.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            launchNewCommentAlertDialog(false, true, name, id, numberResponses);
+                        }
+                    });
+                    if(numberResponses != 0)
+                        ivNumberResponses.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                launchGetResponses(id);
+                            }
+                        });
+                    switch (numberResponses) {
+                        case 0:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_0));
+                            break;
+                        case 1:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_1));
+                            break;
+                        case 2:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_2));
+                            break;
+                        case 3:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_3));
+                            break;
+                        case 4:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_4));
+                            break;
+                        case 5:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_5));
+                            break;
+                        case 6:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_6));
+                            break;
+                        case 7:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_7));
+                            break;
+                        case 8:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_8));
+                            break;
+                        case 9:
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_9));
+                            break;
+                        default:
+                            // more than 9
+                            ivNumberResponses.setImageDrawable(getResources().getDrawable(R.drawable.number_9));
+                    }
+
+                    if(name.equals("null"))
+                        tvName.setText("Anónimo" + " el día " + date);
+                    else
+                        tvName.setText(commentsObtained.getJSONObject(i).getString(Constants.JSON_COMMENT_NAME) + " el día " + date);
+                    tvComment.setText(commentsObtained.getJSONObject(i).getString(Constants.JSON_COMMENT));
+                    LinearLayout emptyLinearLayout = new LinearLayout(this);
+                    // Se añade el comentario
+                    llForAddComments.addView(lloForComment);
+                    // Se añade el LinearLayout vacío para crear márgenes entre los comentarios.
+                    llForAddComments.addView(emptyLinearLayout, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 20));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * Obtiene las respuestas del comentario
+     * @param id el identificador del comentario del que se quieren obtener las respuestas
+     */
+    private void launchGetResponses(int id) {
+        ExecuteInBackground executeInBackground = new ExecuteInBackground(this);
+        executeInBackground.execute(Constants.ID_GET_RESPONSES, id);
+    }
+
+    /**
+     * Crea el método de escucha al pulsar el botón de añadir un nuevo comentario
+     */
+    private void createListener() {
+        bAddNewComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchNewCommentAlertDialog(false, false, null, 0, 0);
+            }
+        });
+    }
+
+    /**
+     * Crea un nuevo AlertDialog para que el usuario pueda introducir un nuevo comentario en el recurso
+     */
+    private void launchNewCommentAlertDialog(final boolean noComments, final boolean response, String name, final int commentID, final int numberResponses) {
+        LinearLayout llForAddComment = new LinearLayout(this);
+        LinearLayout llSecondLine = new LinearLayout(this);
+        llSecondLine.setOrientation(LinearLayout.HORIZONTAL);
+        llForAddComment.setOrientation(LinearLayout.VERTICAL);
+        llSecondLine.setPadding(0,0,20,0);
+        final EditText editTextCommentTitle = new EditText(this);
+        editTextCommentTitle.setFilters(new InputFilter[]{new InputFilter.LengthFilter(Constants.MAXIMUM_COMMENT_SIZE)});
+        final TextView tvCount = new TextView(this);
+        cbAddNameForComment = new CheckBox(this);
+        cbAddNameForComment.setText(getString(R.string.checkbox_name_for_comment));
+        cbAddNameForComment.setChecked(true);
+        LinearLayout.LayoutParams tvCountParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams cbAddNameForCommentParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
+        tvCountParams.weight = 0.2f;
+        cbAddNameForCommentParams.weight = 0.8f;
+        tvCount.setGravity(Gravity.RIGHT);
+        tvCount.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        tvCount.setText(String.valueOf(Constants.MAXIMUM_COMMENT_SIZE));
+        tvCount.setLayoutParams(tvCountParams);
+        cbAddNameForComment.setLayoutParams(cbAddNameForCommentParams);
+        llForAddComment.addView(editTextCommentTitle);
+        llSecondLine.addView(cbAddNameForComment);
+        llSecondLine.addView(tvCount);
+        llForAddComment.addView(llSecondLine, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        editTextCommentTitle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(s.length() >= Constants.MAXIMUM_COMMENT_SIZE) {
+                    Toast.makeText(ResourceCommentsActivity.this, getResources().getString(R.string.toast_maximun_reach), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvCount.setText(String.valueOf(Constants.MAXIMUM_COMMENT_SIZE - s.length()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+//        final EditText editTextComment = new EditText(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(response) {
+            if(name.equals("null")) {
+                builder.setTitle("Respondiendo al comentario de Anónimo");
+            } else {
+                builder.setTitle("Respondiendo al comentario de " + name);
+            }
+        } else {
+            builder.setTitle(getString(R.string.addNewComment));
+        }
+        builder.setPositiveButton(getString(R.string.addNewComment), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                pdPuttingComment = new ProgressDialog(ResourceCommentsActivity.this);
+                pdPuttingComment.setMessage(getString(R.string.pdPuttingComment));
+                pdPuttingComment.show();
+                ExecuteInBackground putNewComment = new ExecuteInBackground(ResourceCommentsActivity.this);
+                if(response) {
+                    if(cbAddNameForComment.isChecked()) {
+                        putNewComment.execute(Constants.ID_REPLY_COMMENT, resourceID, editTextCommentTitle.getText().toString(), getSharedPreferences(Constants.APP_NAME, MODE_PRIVATE).getString(Constants.SHARED_PREFERENCES_NAME, ""), commentID, numberResponses);
+                    } else {
+                        putNewComment.execute(Constants.ID_REPLY_COMMENT, resourceID, editTextCommentTitle.getText().toString(), null, commentID, numberResponses);
+                    }
+                } else {
+                    if(cbAddNameForComment.isChecked()) {
+                        putNewComment.execute(Constants.ID_PUT_COMMENT, resourceID, editTextCommentTitle.getText().toString(), getSharedPreferences(Constants.APP_NAME, MODE_PRIVATE).getString(Constants.SHARED_PREFERENCES_NAME, ""));
+                    } else {
+                        putNewComment.execute(Constants.ID_PUT_COMMENT, resourceID, editTextCommentTitle.getText().toString(), null);
+                    }
+                }
+
+            }
+        })
+                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        if(noComments)
+                            ResourceCommentsActivity.this.finish();
+
+                    }
+                })
+                .setView(llForAddComment)
+                .show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Se almacena el JSON Array resultado para recuperarlo al rotar la pantalla
+        outState.putString(Constants.JSON_RESULT_COMMENTS, this.result.toString());
+        outState.putInt(Constants.RESOURCE_ID, resourceID);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        try {
+            // Se recupera el array resultado y se llama al método para crear el layout
+            resourceID = savedInstanceState.getInt(Constants.RESOURCE_ID);
+            this.result = new JSONArray(savedInstanceState.getString(Constants.JSON_RESULT_COMMENTS));
+            commentsObtained(this.result);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Parsea la fecha para mostrarla en un formato adecuado en los comentarios
+     * @param originalDate la fecha en su formato original
+     * @return un String que contiene la fecha en el formato adecuado para mostrarla
+     */
+    private String parseDate(String originalDate) {
+        String parserDate;
+        String day, month, year, hour, minute, second;
+        String [] allDate = originalDate.split(" ");
+        String [] onlyDate = allDate[0].split("-");
+        year = onlyDate[0];
+        month = onlyDate[1];
+        day = onlyDate[2];
+        parserDate = day + "/" + month + "/" + year + " a las " + allDate[1];
+        return parserDate;
+    }
+
+    /**
+     * Obtiene las referencias a los elementos del layout
+     */
+    private void getReferences() {
+        llCommentsResource = (LinearLayout) findViewById(R.id.llCommentsResource);
+        bAddNewComment = (Button) findViewById(R.id.bAddNewComment);
+    }
+
+    /**
+     * Método llamado cuando se termina de almacenar un comentario en la base de datos del servidor
+     * @param result 0 si se ha almacenado correctamente el comentario; 1 en caso de error
+     */
+    public void commentSave(Integer result) {
+        // Se elimina el progress dialog
+        pdPuttingComment.dismiss();
+        // Se vuelve a realizar una petición al servidor de los comentarios para actualizar la vista y obtener los nuevos comentarios en caso de que se hayan añadido mientras se estaba escribiendo el nuevo
+        getComments();
+    }
+
+    /**
+     * Método llamado cuando se termina de obtener las respuestas a un determinado comentario
+     * @param result un JSONArray que contendrá los comentarios de respuesta
+     */
+    public void getResponse(JSONArray result) {
+        try {
+            JSONArray commentsObtained = result.getJSONObject(0).getJSONArray("result");
+            Intent responseActivity = new Intent(this, ResponseActivity.class);
+            responseActivity.putExtra("JSON", commentsObtained.toString());
+            startActivity(responseActivity);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+}

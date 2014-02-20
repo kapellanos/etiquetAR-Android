@@ -1,0 +1,13 @@
+package es.uc3m.moc.etiquetar.utilities.database;
+
+/**
+ * FrequentQuerys
+ *
+ * @author JumTech
+ * @version 1.0
+ *          <p/>
+ *          6/25/13
+ *          <Class Description>
+ */
+public class FrequentQuerys {
+}

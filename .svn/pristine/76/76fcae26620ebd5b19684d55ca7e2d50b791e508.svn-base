@@ -1,0 +1,158 @@
+/**
+ * ImageResourceActivity.java
+ *
+ * 31/08/13
+ *
+ * <definicion de la clase>
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.activities.resources;
+
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import es.uc3m.moc.etiquetar.R;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments.ResourceCommentsActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground;
+
+public class ImageResourceActivity extends ResourceActivity {
+
+    ProgressDialog pdDialogImage;
+
+    private ImageView ivImageResource;
+    private TextView tvImageResourceTitle;
+    private TextView tvImageLikes;
+    private TextView tvImageNumberComments;
+    private TextView tvImageNumberOfVisits;
+    private TextView tvImageInfoPhoto;
+    private ImageView ivLandscapeImageResource;
+    private ImageView ivAddComment;
+    private Bitmap image = null;
+
+    private String name, viewCounter, info;
+    private int resourceID = 0;
+    private boolean isPortrait;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Obtiene la imagen a partir de la URL
+        if(savedInstanceState == null || !savedInstanceState.getBoolean(Constants.TRANSACTION_COMPLETE)) {
+            pdDialogImage = new ProgressDialog(this);
+            pdDialogImage.setMessage(getResources().getString(R.string.pdResourceImage));
+            pdDialogImage.setCancelable(false);
+            pdDialogImage.show();
+            isPortrait = isPortrait();
+            name = getIntent().getStringExtra(Constants.RESOURCE_NAME);
+            info = getIntent().getStringExtra(Constants.RESOURCE_INFO);
+            resourceID = getIntent().getIntExtra(Constants.RESOURCE_ID, 0);
+            ExecuteInBackground getImage = new ExecuteInBackground(this);
+            getImage.execute(Constants.ID_GET_IMAGE, getIntent().getStringExtra(Constants.RESOURCE_URL));
+        } else
+            restoreValues(savedInstanceState);
+    }
+
+    @Override
+    protected void restoreValues(Bundle savedInstanceState) {
+        if(name == null)
+            name = savedInstanceState.getString("name");
+//        viewCounter = savedInstanceState.getInt("view_counter");
+        if(info == null)
+            info = savedInstanceState.getString("info");
+        if(image == null) {
+            image = savedInstanceState.getParcelable("imagen");
+            setResource(image);
+        }
+        if(resourceID == 0) {
+            resourceID = savedInstanceState.getInt("resourceID");
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle saveInstanceState) {
+        super.onSaveInstanceState(saveInstanceState);
+        if(image != null) {
+            saveInstanceState.putParcelable("imagen", image);
+            saveInstanceState.putBoolean(Constants.TRANSACTION_COMPLETE, true);
+        } else
+            saveInstanceState.putBoolean(Constants.TRANSACTION_COMPLETE, false);
+
+        saveInstanceState.putString("name", name);
+//        saveInstanceState.putInt("view_counter", viewCounter);
+        saveInstanceState.putString("info", info);
+//        saveInstanceState.putString("url", URL);
+        saveInstanceState.putInt("resourceID", resourceID);
+    }
+
+    @Override
+    public void setResource(Object resource) {
+        Bitmap image = null;
+        if(resource instanceof Bitmap) {
+            image = (Bitmap) resource;
+        } else {
+            // Error. No se trata de una imagen y por lo tanto no puede asignarse al imageView
+            return;
+        }
+        this.image = image;
+        if(isPortrait()) {
+            setContentView(R.layout.resource_image_layout);
+            getReferences();
+            tvImageResourceTitle.setText(name);
+//            tvImageLikes.setText(String.valueOf(viewCounter));
+            tvImageInfoPhoto.setText(info);
+            ivImageResource.setImageBitmap(image);
+        } else {
+            setContentView(R.layout.resource_image_layout);
+
+            getReferences();
+            ivLandscapeImageResource.setImageBitmap(image);
+
+        }
+        if(pdDialogImage != null && isPortrait() == isPortrait)
+            pdDialogImage.dismiss();
+    }
+
+    @Override
+    protected void getReferences() {
+        // Se diferencia entre las diferentes orientaciones para obtener una serie de recursos u otros
+        if(isPortrait()) {
+            // Orientación Portrait (la original)
+            ivImageResource = (ImageView) findViewById(R.id.ivImageResource);
+            tvImageResourceTitle = (TextView) findViewById(R.id.tvImageResourceTitle);
+            tvImageLikes = (TextView) findViewById(R.id.tvImageLikes);
+            tvImageInfoPhoto = (TextView) findViewById(R.id.tvInfoPhoto);
+            tvImageNumberComments = (TextView) findViewById(R.id.tvImageNumberComments);
+            tvImageNumberOfVisits = (TextView) findViewById(R.id.tvImageNumberOfVisits);
+            tvImageNumberComments.setText(String.valueOf(getIntent().getIntExtra(Constants.RESOURCE_COMMENTS, 0)));
+            tvImageNumberOfVisits.setText(String.valueOf(getIntent().getIntExtra(Constants.RESOURCE_VIEW_COUNTER, 0)));
+            ivAddComment = (ImageView) findViewById(R.id.ivAddComment);
+            ivAddComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent commentsActivity = new Intent(ImageResourceActivity.this, ResourceCommentsActivity.class);
+                    commentsActivity.putExtra(Constants.RESOURCE_ID_EXTRA, resourceID);
+                    startActivity(commentsActivity);
+                }
+            });
+        } else {
+            // En caso de tener el móvil en modo LandScape, se obtiene el identificador del ImageView que mostrará la imagen a pantalla completa
+            ivLandscapeImageResource = (ImageView) findViewById(R.id.ivLandscapeImageResource);
+        }
+    }
+}

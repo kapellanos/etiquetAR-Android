@@ -1,0 +1,228 @@
+package es.uc3m.moc.etiquetar;
+
+/**
+ * LoginActivity.java
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ * 25/06/2013
+ * Implementa la actividad principal de acceso a la aplicación
+ */
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.json.JSONException;
+
+import es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
+import es.uc3m.moc.etiquetar.utilities.database.DBManager;
+import es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground;
+
+public class LoginActivity extends Activity {
+
+    private EditText etLoginEmail;
+    private EditText etLoginPassword;
+    private Button bEntrar;
+    private ProgressDialog pdLogin;
+    private TextView tvRegister;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login_activity_layout);
+        getReferences();
+        createListeners();
+        // TODO borrar esto; se hace para tener que evitar el login todo el rato
+        SharedPreferences sharedPreferences =  getSharedPreferences(Constants.APP_NAME,MODE_PRIVATE);
+        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, "Juan").commit();
+        // Cuando el usuario se loguea, es necesario crear la base de datos (no deben de existir datos previamente)
+        dropDB();
+        createDB();
+        simulateDB();
+        Intent launch = new Intent(this, DashboardActivity.class);
+        startActivity(launch);
+        finish();
+//        Intent commentsActivity = new Intent(this, ResourceCommentsActivity.class);
+//        commentsActivity.putExtra(Constants.RESOURCE_ID_EXTRA, 1);
+//        startActivity(commentsActivity);
+    }
+
+    private void simulateDB() {
+        SQLiteDatabase sqLiteDatabase = DBManager.getOpenedDatabase(this);
+        String resourceName, resourceInfo, resourceURL, resourceContentType, collectionName, collectionCreatedAt;
+        int resourceID, collectionID, userID, numberViews, numberComments;
+        long date;
+        resourceName = "Documental BBC";
+        resourceInfo = "Amazing new discoveries in South America are revolutionising what we thought we knew about the dinosaur world. It now seems that South America was home to both the largest meat-eater - so new it's still without a name - and the largest herbivore - the enormous long-necked Argentinasaurus. And what's more, these dinosaurs lived at the same time in the same place. So it's possible that like in a science fiction movie, in this prehistoric world these two giants of their kind fought each other in a spectacular clash of the Titans.\n" +
+                "\n" +
+                "Horizon follows the scientists to Argentina as they unearth one of these giants - a brand new species of dinosaur; the biggest carnivore ever discovered. Not yet named, this new creature is even bigger than T. rex, the so-called 'king' of the carnivores. The new giant South American predator had a skull bigger than a man that was full of serrated, knife-like teeth and long powerful jaw muscles. They could dissect their prey with almost surgical precision.\n" +
+                "\n" +
+                "But even this formidable killing machine couldn't alone have taken on the massive long-neck, Argentinasaurus, which was the height of a five-storey building. It must have hunted in a pack. The problem is, the mega-meat-eaters have always been assumed to have been solitary creatures. The evidence shows that they lived and hunted alone. If they weren't pack hunters, then they would never have attacked Argentinasaurus. So it looked like the idea of a mighty battle between these two giants was simply science fiction. But extraordinary new clues are proving otherwise.\n" +
+                "\n" +
+                "Palaeontologist Phil Currie had long suspected that the giant carnivores might indeed have hunted in packs and he set out to find the proof. Only now after many years' work have Currie and his team unearthed the clues that are beginning to convince other palaeontologists that the huge carnivorous dinosaurs hunted in groups. With the help of his colleague Rodolfo Coria, Currie has discovered not one but two fossil bone-beds showing packs of massive carnivorous dinosaurs that have lain buried for millions of years. Each pack - one found in the badlands of Alberta, Canada and the other in Patagonia, Argentina - contains a whole range of individuals, from young through to fully mature adults indicating that they lived alongside in a herd. He's convinced that these dinosaurs were buried together because they were living together.\n" +
+                "\n" +
+                "These new finds are good evidence that these creatures really did hunt as a team. And that means a ferocious pack of enormous carnivorous dinosaurs roaming the lands of South America may indeed have taken on a huge Argentinasaurus in a fight to the death. So it may not just be science fiction - the Clash of the Titans could have happened after all.";
+        resourceURL = "http://www.youtube.com/watch?v=5xCR-iYg6Tc";
+        resourceContentType = "video";
+        resourceID = 3;
+
+        collectionName = "Reina Sofía";
+        collectionID = 1;
+        collectionCreatedAt = "2013-09-14 16:59:20";
+        userID = 2;
+        numberViews = 0;
+        numberComments = 2;
+        date = System.currentTimeMillis();
+
+        ContentValues resourceContentValues = new ContentValues();
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_CONTENT_TYPE, resourceContentType);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_ID, resourceID);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_INFO, resourceInfo);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_URI, resourceURL);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_NAME, resourceName);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_ID, 1);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_NAME, "Estudiante");
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_DATE, date);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_VIEWS, numberViews);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_COMMENTS, numberComments);
+        sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
+
+        ContentValues collectionContentValues = new ContentValues();
+        collectionContentValues.put(DBConstants.COLLECTION_TABLE_NAME, collectionName);
+        collectionContentValues.put(DBConstants.COLLECTION_TABLE_ID, collectionID);
+        collectionContentValues.put(DBConstants.COLLECTION_TABLE_CREATED_AT, collectionCreatedAt);
+        collectionContentValues.put(DBConstants.COLLECTION_TABLE_USER_ID, userID);
+        sqLiteDatabase.insert(DBConstants.COLLECTION_TABLE, null, collectionContentValues);
+
+        resourceName = "Tiranosaurio Rex";
+        resourceInfo = "Se trata del dinosaurio más conocido de todos, su existencia se estima en el periodo cretacico superior, es decir algo más de 65 millones de años, su habitat se situaría en el continente americano y la China e India, solamente se han encontrado 8 esqueletos no completos, no teniendo pruebas de sus patas ni se su cola trasera.";
+        resourceURL = "http://conlamenteabierta.files.wordpress.com/2011/09/tiranosauriorex.jpg";
+        resourceContentType = "image";
+        resourceID = 1;
+
+        resourceContentValues = new ContentValues();
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_CONTENT_TYPE, resourceContentType);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_ID, resourceID);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_INFO, resourceInfo);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_URI, resourceURL);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_NAME, resourceName);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_ID, 1);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_NAME, "Estudiante");
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_DATE, date);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_VIEWS, numberViews);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_COMMENTS, numberComments);
+        sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
+
+        resourceName = "Diplodocus";
+        resourceInfo = "Diplodocus mola un montón";
+        resourceURL = "http://dinosaurios.org/wp-content/uploads/2013/07/diplodocus9.jpg";
+        resourceContentType = "image";
+        resourceID = 4;
+
+        resourceContentValues = new ContentValues();
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_CONTENT_TYPE, resourceContentType);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_ID, resourceID);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_INFO, resourceInfo);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_URI, resourceURL);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_NAME, resourceName);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_ID, 1);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_PROFILE_NAME, "Estudiante");
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_DATE, date);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_VIEWS, numberViews);
+        resourceContentValues.put(DBConstants.RESOURCE_TABLE_COMMENTS, numberComments);
+        sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
+    }
+
+    private void dropDB() {
+        boolean result = getApplicationContext().deleteDatabase(DBConstants.DB_NAME);
+    }
+
+    private void createDB() {
+        // Crea la base de datos al abrirla y que no exista (no debe existir)
+        DBManager.getOpenedDatabase(getApplicationContext());
+        // Almacena la contraseña de la base de datos en las preferencias privadas de la aplicación
+    }
+
+    /**
+     * Crea las escuchas de los botones y del text view para registrarse
+     */
+    private void createListeners() {
+        // Escucha para el botón de loguearse contra el servidor
+        bEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pdLogin = new ProgressDialog(LoginActivity.this);
+                pdLogin.setMessage(getString(R.string.pdLogin));
+                pdLogin.setCancelable(false);
+                pdLogin.show();
+                // Se lanza una tarea en segundo plano para ejecutar el login, enviando los credenciales al servidor utilizando la URL {@link Constants.ID_EXECUTE_LOGIN}
+                ExecuteInBackground login = new ExecuteInBackground(LoginActivity.this);
+                login.execute(Constants.ID_EXECUTE_LOGIN, etLoginEmail.getText().toString(), etLoginPassword.getText().toString());
+                // Se lanza un progress dialog para avisar al usuario de lo que se está realizando
+            }
+        });
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Se lanza la actividad de registro, sin finalizar la de login por si el usuario da para atras.
+                Intent startRegisterActivity = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(startRegisterActivity);
+            }
+        });
+    }
+
+    /**
+     * Obtiene las referencias a los objetos de la vista
+     */
+    private void getReferences() {
+        etLoginEmail = (EditText) findViewById(R.id.etLoginEmail);
+        etLoginPassword = (EditText) findViewById(R.id.etLoginPassword);
+        bEntrar = (Button) findViewById(R.id.bEntrar);
+        tvRegister = (TextView) findViewById(R.id.tvRegister);
+    }
+
+    /**
+     * Método llamado cuando se ha comprobado los credenciales y son adecuados
+     */
+    public void logOk(String userName) {
+        pdLogin.dismiss();
+        SharedPreferences sharedPreferences =  getSharedPreferences(Constants.APP_NAME,MODE_PRIVATE);
+        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, userName).commit();
+        Intent startMainActivity = new Intent(LoginActivity.this, DashboardActivity.class);
+        startActivity(startMainActivity);
+        finish();
+    }
+
+    /**
+     * Método llamado cuando se ha encontrado un error para acceder. Se muestra un alert dialog para avisar al usuario de la situación
+     */
+    public void logKo() {
+        pdLogin.dismiss();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.errorLoginText)
+                .setCancelable(true)
+                .setTitle(getString(R.string.incorrect_login))
+                .setPositiveButton(getString(R.string.close), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create().show();
+    }
+//
+}

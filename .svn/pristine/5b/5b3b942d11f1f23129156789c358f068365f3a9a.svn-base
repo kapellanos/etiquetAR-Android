@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<es.uc3m.moc.etiquetar.utilities.layout.LinearLayoutOutlined xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:weightSum="10"
+    android:padding="3dp"
+    android:layout_weight="2"
+    android:id="@+id/lloForComment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:textSize="24sp"
+            android:gravity="bottom"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:src="@drawable/number_0"
+            android:layout_gravity="right|end"
+            android:id="@+id/ivNumberResponses"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:src="@drawable/response"
+            android:layout_gravity="right|end"
+            android:id="@+id/ivReply"
+            />
+    </LinearLayout>
+
+</es.uc3m.moc.etiquetar.utilities.layout.LinearLayoutOutlined>

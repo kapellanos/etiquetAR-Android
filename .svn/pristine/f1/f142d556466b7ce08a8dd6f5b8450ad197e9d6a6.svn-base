@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="9">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/home"
+                android:background="@android:color/transparent"
+                android:layout_weight="0.8"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Inicio"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/collections"
+                android:background="@android:color/transparent"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Mis colecciones"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.80"
+                android:src="@drawable/camera"
+                android:background="@android:color/transparent"
+                android:id="@+id/tryMe"
+                android:layout_marginBottom="-18dp"
+                />
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Capturar nuevo tag"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/comments"
+                android:background="@android:color/transparent"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Mis comentarios"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            >
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/profile"
+                android:background="@android:color/transparent"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Mi perfil"
+                android:layout_weight="0.2"
+                android:gravity="top|center"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

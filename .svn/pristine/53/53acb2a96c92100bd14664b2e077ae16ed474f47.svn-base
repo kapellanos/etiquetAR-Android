@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/data_access_preferences"
+        android:key="pref_key_data_access_preferences">
+        <EditTextPreference
+            android:key="pref_change_name"
+            android:title="@string/change_name_preference"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>

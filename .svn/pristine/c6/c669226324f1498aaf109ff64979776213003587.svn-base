@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loginActivityEmail">E-Mail</string>
+    <string name="loginActivityPassword">*************</string>
+    <string name="loginActivityEntrar">Entrar</string>
+    <string name="tvNotRegister">¿Aún no estás registrado? </string>
+    <string name="register">Registrate aquí</string>
+    <string name="userHint">Usuario: e-mail</string>
+    <string name="nameHint">Nombre</string>
+    <string name="passwordHint">Contraseña</string>
+    <string name="repeteatPasswordHint">Repite la contraseña</string>
+    <string name="errorLoginText">Usuario/Contraseña incorrectos</string>
+    <string name="registerButton">Registrarse</string>
+    <string name="redesSociales">O accede utilizando las redes sociales</string>
+    <string name="menuScan">Escanear</string>
+    <string name="menuHome">Inicio</string>
+    <string name="menuTags">Mis Tags</string>
+    <string name="menuComments">Comentarios</string>
+    <string name="menuProfile">Perfil</string>
+    <string name="seleccionaPerfil">Selecciona tu perfil:</string>
+    <string name="resourceAddComment">Ver los comentarios</string>
+    <string name="buttonAddComment">Ver los comentarios del recurso</string>
+    <string name="numberViews">Número de veces que ha sido visto el recurso:</string>
+    <string name="numberComments">Número de comentarios del recurso:</string>
+    <string name="numberLikes">Veces que se ha valorado positivamente el recurso:</string>
+    <string name="resourceImage">Imagen asociada al recurso</string>
+</resources>

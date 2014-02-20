@@ -1,0 +1,43 @@
+/**
+ * CollectionActivity.java
+ *
+ * 02/08/2013
+ *
+ * Esta clase implementará la actividad principal de la aplicación (la que se mostrará por defecto tras loguearse). Dicha pantalla muestra,
+ * en un principio, las colecciones que se han leído recientemente, junto con las características de las mismas. Posteriormente se añadirá una
+ * nueva funcionalidad que permitirá descargar el contenido de la aplicación al móvil y de esta manera acceder a su contenido de forma local. Al
+ * descargar una colección se descargarán todos los códigos QR asociados a ella y por lo tanto también será necesario almacenar (en base de datos
+ * en principio) los perfiles que existen en el recurso y los recursos asociados a ellos.
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.fragments;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import es.uc3m.moc.etiquetar.R;
+
+public class CollectionActivity extends Fragment {
+    /** (non-Javadoc)
+     * @see android.support.v4.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+     */
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        if (container == null) {
+            // We have different layouts, and in one of them this
+            // fragment's containing frame doesn't exist.  The fragment
+            // may still be created from its saved state, but there is
+            // no reason to try to create its view hierarchy because it
+            // won't be displayed.  Note this is not needed -- we could
+            // just run the code below, where we would create and return
+            // the view hierarchy; it would just never be used.
+            return null;
+        }
+        return inflater.inflate(R.layout.collections_layout, container, false);
+    }
+}

@@ -1,0 +1,69 @@
+/**
+ * CollectionsActivity.java
+ *
+ * 13/09/13
+ *
+ * <definicion de la clase>
+ *
+ * @author Miguel Olmedo Camacho - 100072925
+ * @version 1.0
+ *
+ */
+package es.uc3m.moc.etiquetar.user.normaluser.activities;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.LinearLayout;
+
+import es.uc3m.moc.etiquetar.R;
+import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.utilities.constants.Constants;
+import es.uc3m.moc.etiquetar.utilities.database.FrequentQuerys;
+import es.uc3m.moc.etiquetar.utilities.general.FrequentMethods;
+
+public class CollectionsActivity extends Activity{
+
+    private LinearLayout llCollectionsLinearLayout;
+    private Cursor result;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity_collections);
+        getReferences();
+        getElements();
+    }
+
+    private void getElements() {
+        result = FrequentQuerys.getCollections(getApplicationContext());
+        if(result.moveToFirst()) {
+            drawLayout();
+        } else {
+            FrequentMethods.noScanResources(this, this);
+        }
+
+    }
+
+    private void drawLayout() {
+
+    }
+
+    private void getReferences() {
+        llCollectionsLinearLayout = (LinearLayout) findViewById(R.id.llCollectionsLinearLayout);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode,resultCode,intent);
+        if (requestCode == 0) { // Escaneo QR
+            if (resultCode == RESULT_OK) {  // Resultado correcto
+                if(intent.getStringExtra(Constants.SCAN_RESULT_EXTRA).equals("QR_CODE")) {
+                    FrequentMethods.launchSelectProfileActivity(this, intent.getStringExtra("SCAN_RESULT"));
+                }
+            }
+        }
+    }
+}

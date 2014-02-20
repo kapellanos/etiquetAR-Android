@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errorEmailEmpty">El correo no puede estar vacío</string>
+    <string name="errorNameEmpty">El nombre no puede estar vacío</string>
+    <string name="errorPasswordEmpty">La contraseña no puede estar vacía</string>
+    <string name="errorPassword2Empty">Vuelve a introducir la contraseña</string>
+    <string name="errorEmail">Correo incorrecto</string>
+    <string name="errorName">Nombre demasiado corto</string>
+    <string name="errorShortPasword">Mínimo 6 caracteres</string>
+    <string name="errorPasswordsDontMatch">Las contraseñas no coinciden</string>
+</resources>
