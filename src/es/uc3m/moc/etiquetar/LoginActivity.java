@@ -49,8 +49,8 @@ public class LoginActivity extends Activity {
         SharedPreferences sharedPreferences =  getSharedPreferences(Constants.APP_NAME,MODE_PRIVATE);
         // TODO BORRAR
         sharedPreferences.edit().clear().commit();
-        sharedPreferences.edit().putBoolean(Constants.SHARED_PREFERENCES_LOGGED, true).commit();
-        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, "kape").commit();
+//        sharedPreferences.edit().putBoolean(Constants.SHARED_PREFERENCES_LOGGED, false).commit();
+//        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, "kape").commit();
         if(sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_LOGGED, false)) {
             launchDashboardActivity();
         }

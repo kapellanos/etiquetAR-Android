@@ -41,6 +41,12 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/res/layout/main_activity_home.xml">
+        <config>
+          <device>Nexus 10</device>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/res/layout/register_activity_layout.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -71,11 +77,59 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-normal-land" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-normal-port" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-small-port" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager$1.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/BuildConfig.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/camera/CameraConfigurationManager.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/camera/CameraConfigurationManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/camera/CameraManager.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/camera/CameraManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler$State.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler$State.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/constants/Constants.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/constants/Constants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/database/DBHelper.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/database/DBHelper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/database/DBManager.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/database/DBManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/DecodeFormatManager.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/DecodeFormatManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/DecodeThread.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/DecodeThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer$DaemonThreadFactory.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer$DaemonThreadFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer$PowerStatusReceiver.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer$PowerStatusReceiver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/LoginActivity$1.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/LoginActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/LoginActivity.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/LoginActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/PlanarYUVLuminanceSource.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/PlanarYUVLuminanceSource.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/http/Post.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/http/Post.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$array.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$array.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$attr.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$attr.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$color.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$color.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$dimen.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$dimen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$drawable.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$id.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$layout.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$raw.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$raw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$string.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$style.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$xml.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R$xml.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler$1.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandlerFactory.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandlerFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/TextResultHandler.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/result/TextResultHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/ViewfinderView.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/ViewfinderView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EtiquetAR.iml" afterPath="$PROJECT_DIR$/EtiquetAR.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/es/uc3m/moc/etiquetar/R.java" afterPath="$PROJECT_DIR$/gen/es/uc3m/moc/etiquetar/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_activity_home.xml" afterPath="$PROJECT_DIR$/res/layout/main_activity_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml" afterPath="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
     </list>
     <ignored path="EtiquetAR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -199,7 +253,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" line="188" class="es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground" package="es.uc3m.moc.etiquetar.utilities.http">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" line="189" class="es.uc3m.moc.etiquetar.utilities.http.ExecuteInBackground" package="es.uc3m.moc.etiquetar.utilities.http">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -314,103 +368,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CollectionsActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="4500">
+            <state line="499" column="33" selection-start="28826" selection-end="28826" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_activity_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java">
+      <file leaf-file-name="AutoFocusCallback.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/AutoFocusCallback.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="48" selection-start="1686" selection-end="1735" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1380">
+            <state line="23" column="12" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DecodeHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.java">
+      <file leaf-file-name="CameraConfigurationManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraConfigurationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1680">
+            <state line="33" column="12" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaptureActivityHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.java">
+      <file leaf-file-name="CameraManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2100">
+            <state line="39" column="19" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="3870">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaptureActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PreviewCallback.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/PreviewCallback.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="12" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="930">
+              <folding>
+                <element signature="e#0#1811#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InactivityTimer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="49" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CaptureActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="303" column="16" selection-start="11345" selection-end="11345" vertical-scroll-proportion="0.0" vertical-offset="4545" max-vertical-offset="5385">
+            <state line="342" column="32" selection-start="12892" selection-end="12892" vertical-scroll-proportion="9.217898" vertical-offset="92" max-vertical-offset="5085">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="154" column="38" selection-start="7530" selection-end="7530" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="3150">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_activity_home.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main_activity_home.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="ExecuteInBackground.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="32" selection-start="699" selection-end="699" vertical-scroll-proportion="-10.555555" vertical-offset="0" max-vertical-offset="420">
+            <state line="61" column="36" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="3000">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_activity_collections.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout-xlarge-land/main_activity_collections.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="47" selection-start="758" selection-end="758" vertical-scroll-proportion="-10.592592" vertical-offset="44" max-vertical-offset="525">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_activity_home.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="33" selection-start="756" selection-end="756" vertical-scroll-proportion="0.5925156" vertical-offset="0" max-vertical-offset="481">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrequentMethods.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
+            <state line="8" column="36" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1860">
               <folding />
             </state>
           </provider>
@@ -427,13 +474,11 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/DBHelper.java" />
         <option value="$PROJECT_DIR$/res/layout/main_activity_collections.xml" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/TCImageLoader.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java" />
-        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/SelectProfileActivity.java" />
         <option value="$PROJECT_DIR$/res/layout-xlarge-port/resource_image_layout.xml" />
@@ -443,14 +488,19 @@
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" />
         <option value="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml" />
+        <option value="$PROJECT_DIR$/res/layout-large-port/main_activity_home.xml" />
         <option value="$PROJECT_DIR$/res/layout/main_activity_home.xml" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
+    <option name="x" value="45" />
     <option name="y" value="22" />
-    <option name="width" value="1394" />
+    <option name="width" value="1395" />
     <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -564,8 +614,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -620,197 +668,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utilities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utilities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="general" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="qrlecture" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qrlecture" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="result" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -830,6 +688,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -838,12 +698,12 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="050da42b0950c395" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -858,6 +718,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="437" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Tablet10" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -866,11 +727,11 @@
       <recent name="es.uc3m.moc.etiquetar.utilities.layout" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/layout-large-port" />
       <recent name="$PROJECT_DIR$/res/layout-xlarge-land" />
       <recent name="$PROJECT_DIR$/res/layout-xlarge-port" />
       <recent name="$PROJECT_DIR$/res/drawable" />
       <recent name="$PROJECT_DIR$/res/drawable-xxhdpi" />
-      <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
@@ -1245,14 +1106,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="22" width="1394" height="878" extended-state="6" />
+    <frame x="45" y="22" width="1395" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67022413" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902297" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67022413" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2697274" sideWeight="0.74927115" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36235955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1261,13 +1121,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31545338" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30779055" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32705882" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24892396" sideWeight="0.81778425" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24861111" sideWeight="0.81778425" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20444763" sideWeight="0.8732194" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23082437" sideWeight="0.8732194" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1954023" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655245" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1275,6 +1135,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.4941691" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2697274" sideWeight="0.74927115" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28991598" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3015873" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1361,112 +1222,29 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/BeepManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1680">
-          <folding />
-        </state>
+        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1680" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2100">
-          <folding />
-        </state>
+        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2100" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="26" selection-start="8212" selection-end="8212" vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="5385">
-          <folding />
-        </state>
+        <state line="242" column="26" selection-start="8212" selection-end="8212" vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="5385" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="481" column="3" selection-start="17409" selection-end="17409" vertical-scroll-proportion="0.0" vertical-offset="7005" max-vertical-offset="7005">
-          <folding />
-        </state>
+        <state line="469" column="44" selection-start="17083" selection-end="17083" vertical-scroll-proportion="0.0" vertical-offset="7005" max-vertical-offset="7005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="4500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="48" selection-start="1686" selection-end="1735" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/BeepManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2100">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="26" selection-start="8212" selection-end="8212" vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="5385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="469" column="44" selection-start="17083" selection-end="17083" vertical-scroll-proportion="0.0" vertical-offset="7005" max-vertical-offset="7005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
-          <folding />
-        </state>
+        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
@@ -1477,13 +1255,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java">
@@ -1495,9 +1273,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
-          <folding />
-        </state>
+        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
@@ -1508,20 +1284,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
-          <folding />
-        </state>
+        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
@@ -1532,20 +1306,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
-          <folding />
-        </state>
+        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
@@ -1556,20 +1328,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120">
-          <folding />
-        </state>
+        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java">
@@ -1587,11 +1357,6 @@
         <state line="38" column="42" selection-start="1540" selection-end="1554" vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1365" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="82" selection-start="23695" selection-end="23704" vertical-scroll-proportion="0.0" vertical-offset="1985" max-vertical-offset="7380" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/TCImageLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="0" selection-start="1533" selection-end="1533" vertical-scroll-proportion="0.0" vertical-offset="599" max-vertical-offset="2010" />
@@ -1603,11 +1368,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/resource_image_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="45" selection-start="702" selection-end="722" vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="2055" />
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java">
@@ -1642,11 +1407,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/main_activity_collections.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="47" selection-start="758" selection-end="758" vertical-scroll-proportion="0.55580866" vertical-offset="86" max-vertical-offset="525" />
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ResourceActivity.java">
@@ -1664,13 +1429,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java">
@@ -1682,73 +1447,146 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/BeepManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="1305">
-          <folding />
-        </state>
+        <state line="35" column="12" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="1305" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1245">
-          <folding />
-        </state>
+        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1245" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1665">
-          <folding />
-        </state>
+        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1665" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="477" column="40" selection-start="17284" selection-end="17284" vertical-scroll-proportion="0.3013393" vertical-offset="6360" max-vertical-offset="7050">
+        <state line="477" column="40" selection-start="17284" selection-end="17284" vertical-scroll-proportion="0.3013393" vertical-offset="6360" max-vertical-offset="7050" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.71276593" vertical-offset="2650" max-vertical-offset="3120" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-land/main_activity_collections.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="47" selection-start="758" selection-end="758" vertical-scroll-proportion="0.5945946" vertical-offset="44" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="481">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="15" selection-start="242" selection-end="242" vertical-scroll-proportion="0.18711019" vertical-offset="0" max-vertical-offset="481">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.24948025" vertical-offset="0" max-vertical-offset="481">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/FinishListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="19" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0625" vertical-offset="134" max-vertical-offset="630" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="36" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="2730">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="38" selection-start="7530" selection-end="7530" vertical-scroll-proportion="0.0" vertical-offset="2034" max-vertical-offset="2535">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="36" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1860">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="499" column="33" selection-start="28826" selection-end="28826" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/AutoFocusCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="12" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraConfigurationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="12" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="19" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="3870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/PreviewCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="12" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="930">
+          <folding>
+            <element signature="e#0#1811#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="49" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="16" selection-start="11345" selection-end="11345" vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="4650">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="1962" max-vertical-offset="2490">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_home.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="699" selection-end="699" vertical-scroll-proportion="-10.555555" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-land/main_activity_collections.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="47" selection-start="758" selection-end="758" vertical-scroll-proportion="-10.592592" vertical-offset="44" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="756" selection-end="756" vertical-scroll-proportion="0.5925156" vertical-offset="0" max-vertical-offset="481">
-          <folding />
+        <state line="342" column="32" selection-start="12892" selection-end="12892" vertical-scroll-proportion="9.217898" vertical-offset="92" max-vertical-offset="5085">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

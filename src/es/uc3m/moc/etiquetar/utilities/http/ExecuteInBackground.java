@@ -145,6 +145,7 @@ public class ExecuteInBackground extends AsyncTask<Object, Void, Object> {
 
             }
             jsonArray.put(jsonObject);
+            System.out.println(jsonArray.toString());
             results[1] = Post.doPost(URL, jsonArray);
         } catch (JSONException e) {
             results[1] = -1;
