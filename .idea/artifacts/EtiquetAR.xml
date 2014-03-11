@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="apk" build-on-make="true" name="EtiquetAR">
+    <output-path>$PROJECT_DIR$/out/artifacts/EtiquetAR</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="keyAlias" value="moc" />
+        <option name="keyPassword" value="SWxpZ2l0aW1vdG9yODk=" />
+        <option name="keyStorePassword" value="SWxpZ2l0aW1vdG9yODk=" />
+        <option name="keyStoreUrl" value="file://$USER_HOME$/my-release-key.keystore" />
+        <option name="proGuardCfgFiles">
+          <list>
+            <option value="file://%MODULE_SDK_HOME%/tools/proguard/proguard-android.txt" />
+          </list>
+        </option>
+        <option name="signingMode" value="RELEASE_SIGNED" />
+      </options>
+    </properties>
+    <root id="archive" name="EtiquetAR.apk">
+      <element id="android-final-package" facet="EtiquetAR/android/Android" />
+    </root>
+  </artifact>
+</component>

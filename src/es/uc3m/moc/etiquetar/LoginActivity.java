@@ -59,9 +59,9 @@ public class LoginActivity extends Activity {
         createListeners();
         // TODO borrar esto; se hace para tener que evitar el login todo el rato
         // Cuando el usuario se loguea, es necesario crear la base de datos (no deben de existir datos previamente)
-        dropDB();
+        //dropDB();
 //        createDB();
-        simulateDB();
+        //simulateDB();
 //        ExecuteInBackground prueba = new ExecuteInBackground(this);
 //        prueba.execute(24);
 //        Intent launch = new Intent(this, DashboardActivity.class);
