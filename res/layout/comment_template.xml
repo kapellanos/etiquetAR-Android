@@ -4,54 +4,41 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:weightSum="10"
-    android:padding="3dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="10dp"
     android:layout_weight="2"
     android:id="@+id/lloForComment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8.5"   />
+        android:layout_weight="8"
+        android:textSize="14sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8.5"
+            android:layout_weight="9.5"
+            android:textSize="18sp"
             android:gravity="bottom"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold"
-
             />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:src="@drawable/trash"
+            android:src="@drawable/points"
             android:layout_gravity="right|end"
             android:id="@+id/ivMore"
             />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:src="@drawable/number_0"
-            android:layout_gravity="right|end"
-            android:id="@+id/ivNumberResponses"
-            />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:src="@drawable/response"
-            android:gravity="right|end"
-            android:id="@+id/ivReply"
-            />
+        />
     </LinearLayout>
 
 </es.uc3m.moc.etiquetar.utilities.layout.LinearLayoutOutlined>

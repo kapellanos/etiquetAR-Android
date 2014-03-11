@@ -72,11 +72,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="476ebacb-6eaf-4233-938b-5602ebfb0d12" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-large-land" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-large-port" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-normal-land" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-normal-port" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-small-port" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/points.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/Contents.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/admin/AdminMainActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/admin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CollectionsActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CommentsActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CommentsActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/DashboardActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/DashboardActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/ProfileActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/ProfileActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/ProfileFragmentActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/ProfileFragmentActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ImageResourceActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ImageResourceActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ResourceActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ResourceActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/SelectProfileActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/SelectProfileActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/TextResourceActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/TextResourceActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/URLResourceActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/URLResourceActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/VideoResourceActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/VideoResourceActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/comments/ResourceCommentsActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResourceCommentsActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/comments/ResponseActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResponseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager$1.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/qrlecture/BeepManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/BuildConfig.class" afterPath="$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/BuildConfig.class" />
@@ -121,15 +135,30 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EtiquetAR.iml" afterPath="$PROJECT_DIR$/EtiquetAR.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/es/uc3m/moc/etiquetar/R.java" afterPath="$PROJECT_DIR$/gen/es/uc3m/moc/etiquetar/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/comment_template.xml" afterPath="$PROJECT_DIR$/res/layout/comment_template.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_activity_comments.xml" afterPath="$PROJECT_DIR$/res/layout/main_activity_comments.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_activity_home.xml" afterPath="$PROJECT_DIR$/res/layout/main_activity_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml" afterPath="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/res/xml/preferences.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/resource_comments_layout.xml" afterPath="$PROJECT_DIR$/res/layout/resource_comments_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/resource_video_layout.xml" afterPath="$PROJECT_DIR$/res/layout/resource_video_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values-es/strings.xml" afterPath="$PROJECT_DIR$/res/values-es/strings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/comments" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources" afterPath="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources" />
     </list>
     <ignored path="EtiquetAR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -193,7 +222,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ResourceActivity.java" line="0" class="ResourceActivity.java" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ResourceActivity.java" line="0" class="ResourceActivity.java" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -208,7 +237,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" line="502" class="es.uc3m.moc.etiquetar.user.normaluser.activities.HomeActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java" line="502" class="es.uc3m.moc.etiquetar.user.activities.HomeActivity" package="es.uc3m.moc.etiquetar.user.activities">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -223,7 +252,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" line="382" class="es.uc3m.moc.etiquetar.user.normaluser.activities.HomeActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java" line="384" class="es.uc3m.moc.etiquetar.user.activities.HomeActivity" package="es.uc3m.moc.etiquetar.user.activities">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -238,7 +267,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" line="486" class="es.uc3m.moc.etiquetar.user.normaluser.activities.HomeActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java" line="486" class="es.uc3m.moc.etiquetar.user.activities.HomeActivity" package="es.uc3m.moc.etiquetar.user.activities">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -268,7 +297,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/comments/ResourceCommentsActivity.java" line="444" class="es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments.ResourceCommentsActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResourceCommentsActivity.java" line="452" class="es.uc3m.moc.etiquetar.user.activities.resources.comments.ResourceCommentsActivity" package="es.uc3m.moc.etiquetar.user.activities.resources.comments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -298,7 +327,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" line="211" class="es.uc3m.moc.etiquetar.user.normaluser.activities.CollectionsActivity$4" package="es.uc3m.moc.etiquetar.user.normaluser.activities">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CollectionsActivity.java" line="211" class="es.uc3m.moc.etiquetar.user.activities.CollectionsActivity$4" package="es.uc3m.moc.etiquetar.user.activities">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -313,7 +342,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/SelectProfileActivity.java" line="210" class="es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities.resources">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ImageResourceActivity.java" line="59" class="es.uc3m.moc.etiquetar.user.activities.resources.ImageResourceActivity" package="es.uc3m.moc.etiquetar.user.activities.resources">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -328,7 +357,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ImageResourceActivity.java" line="59" class="es.uc3m.moc.etiquetar.user.normaluser.activities.resources.ImageResourceActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities.resources">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ImageResourceActivity.java" line="130" class="es.uc3m.moc.etiquetar.user.activities.resources.ImageResourceActivity" package="es.uc3m.moc.etiquetar.user.activities.resources">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -343,7 +372,67 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ImageResourceActivity.java" line="130" class="es.uc3m.moc.etiquetar.user.normaluser.activities.resources.ImageResourceActivity" package="es.uc3m.moc.etiquetar.user.normaluser.activities.resources">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CollectionsActivity.java" line="170" class="es.uc3m.moc.etiquetar.user.activities.CollectionsActivity" package="es.uc3m.moc.etiquetar.user.activities">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CollectionsActivity.java" line="187" class="es.uc3m.moc.etiquetar.user.activities.CollectionsActivity" package="es.uc3m.moc.etiquetar.user.activities">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/URLResourceActivity.java" line="48" class="es.uc3m.moc.etiquetar.user.activities.resources.URLResourceActivity" package="es.uc3m.moc.etiquetar.user.activities.resources">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/URLResourceActivity.java" line="59" class="es.uc3m.moc.etiquetar.user.activities.resources.URLResourceActivity" package="es.uc3m.moc.etiquetar.user.activities.resources">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResourceCommentsActivity.java" line="460" class="es.uc3m.moc.etiquetar.user.activities.resources.comments.ResourceCommentsActivity" package="es.uc3m.moc.etiquetar.user.activities.resources.comments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -368,96 +457,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="comment_template.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/comment_template.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="735">
+              <caret line="28" column="32" selection-start="1006" selection-end="1006" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="499" column="33" selection-start="28826" selection-end="28826" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
+            <state vertical-scroll-proportion="0.39314517" vertical-offset="585" max-vertical-offset="7515">
+              <caret line="76" column="0" selection-start="2996" selection-end="2996" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutoFocusCallback.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/AutoFocusCallback.java">
+      <file leaf-file-name="TextResourceActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/TextResourceActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="12" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="615">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="1740">
+              <caret line="69" column="58" selection-start="2703" selection-end="2777" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CameraConfigurationManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraConfigurationManager.java">
+      <file leaf-file-name="URLResourceActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/URLResourceActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="12" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="1365">
+              <caret line="85" column="1" selection-start="3073" selection-end="3073" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CameraManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraManager.java">
+      <file leaf-file-name="VideoResourceActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/VideoResourceActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="19" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="3870">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="3075">
+              <caret line="94" column="41" selection-start="3108" selection-end="3108" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreviewCallback.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/PreviewCallback.java">
+      <file leaf-file-name="LinearLayoutOutlined.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/layout/LinearLayoutOutlined.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="12" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="930">
-              <folding>
-                <element signature="e#0#1811#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InactivityTimer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="49" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="945">
+              <caret line="17" column="13" selection-start="399" selection-end="399" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaptureActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
+      <file leaf-file-name="resource_comments_layout.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/resource_comments_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="342" column="32" selection-start="12892" selection-end="12892" vertical-scroll-proportion="9.217898" vertical-offset="92" max-vertical-offset="5085">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="38" selection-start="7530" selection-end="7530" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="3150">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+              <caret line="0" column="0" selection-start="0" selection-end="0" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExecuteInBackground.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="36" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="3000">
-              <folding />
-            </state>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <file leaf-file-name="main_activity_comments.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/main_activity_comments.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="36" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1860">
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="195">
+              <caret line="5" column="37" selection-start="262" selection-end="262" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comments_button.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable/comments_button.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <caret line="0" column="0" selection-start="0" selection-end="0" />
               <folding />
             </state>
           </provider>
@@ -474,34 +567,54 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/DBHelper.java" />
         <option value="$PROJECT_DIR$/res/layout/main_activity_collections.xml" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/TCImageLoader.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java" />
-        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/SelectProfileActivity.java" />
         <option value="$PROJECT_DIR$/res/layout-xlarge-port/resource_image_layout.xml" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ImageResourceActivity.java" />
         <option value="$PROJECT_DIR$/res/layout-xlarge-land/main_activity_collections.xml" />
         <option value="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_collections.xml" />
-        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java" />
         <option value="$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml" />
         <option value="$PROJECT_DIR$/res/layout-large-port/main_activity_home.xml" />
         <option value="$PROJECT_DIR$/res/layout/main_activity_home.xml" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/DashboardActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CollectionsActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResponseActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ResourceActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/SelectProfileActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/ProfileActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/ProfileFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/DashboardActivity.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java" />
+        <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
+        <option value="$PROJECT_DIR$/res/xml/preferences.xml" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/resource_video_layout.xml" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.java" />
+        <option value="$PROJECT_DIR$/res/layout/main_activity_comments.xml" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ImageResourceActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CommentsActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResourceCommentsActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/comment_template.xml" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/TextResourceActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/VideoResourceActivity.java" />
+        <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/URLResourceActivity.java" />
         <option value="$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="22" />
-    <option name="width" value="1395" />
-    <option name="height" value="878" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -607,13 +720,14 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages ProjectPane="true" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -629,7 +743,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -639,57 +753,124 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="etiquetar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qrlecture" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EtiquetAR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout-xlarge-port" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout-xlarge-land" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout-land" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-normal-land" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtiquetAR" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -703,7 +884,7 @@
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="050da42b0950c395" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.2.104:5555" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -711,7 +892,7 @@
     <property name="AndroidTargetDevices" value="C2OKAS130014" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="FullScreen" value="false" />
+    <property name="FullScreen" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -727,11 +908,11 @@
       <recent name="es.uc3m.moc.etiquetar.utilities.layout" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/drawable" />
+      <recent name="$PROJECT_DIR$/res/layout" />
       <recent name="$PROJECT_DIR$/res/layout-large-port" />
       <recent name="$PROJECT_DIR$/res/layout-xlarge-land" />
       <recent name="$PROJECT_DIR$/res/layout-xlarge-port" />
-      <recent name="$PROJECT_DIR$/res/drawable" />
-      <recent name="$PROJECT_DIR$/res/drawable-xxhdpi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
@@ -771,6 +952,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -796,19 +990,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -904,23 +1085,8 @@
       <AnalysisUIOptions />
     </option>
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true" SSL_PROTOCOLS="all">
     <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="SvnFileUrlMappingImpl">
@@ -1106,39 +1272,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="22" width="1395" height="878" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67022413" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902297" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67022413" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36235955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17294118" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36104217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32056195" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17022412" sideWeight="0.38335288" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30779055" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3337469" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32705882" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24861111" sideWeight="0.81778425" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24821173" sideWeight="0.81778425" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23082437" sideWeight="0.8732194" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1954023" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23247497" sideWeight="0.8732194" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32009926" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655245" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.4941691" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2697274" sideWeight="0.74927115" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28991598" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3015873" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26862463" sideWeight="0.74927115" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2899106" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30148885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39828694" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1147,14 +1313,14 @@
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52582157" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655245" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282353" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282353" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24866596" sideWeight="0.3282353" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19647059" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19647059" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67022413" order="3" side_tool="false" content_ui="tabs" />
@@ -1168,8 +1334,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3082353" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.67176473" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24892396" sideWeight="0.81778425" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39828694" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1222,154 +1388,286 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1680" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2100" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="26" selection-start="8212" selection-end="8212" vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="5385" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="5085">
+          <caret line="132" column="13" selection-start="4601" selection-end="4601" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/view/View.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="469" column="44" selection-start="17083" selection-end="17083" vertical-scroll-proportion="0.0" vertical-offset="7005" max-vertical-offset="7005" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="16918" max-vertical-offset="17820">
+          <caret line="1144" column="28" selection-start="51897" selection-end="51897" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2034" max-vertical-offset="2535">
+          <caret line="154" column="38" selection-start="7530" selection-end="7530" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/YouTubeAndroidPlayerApi.jar!/com/google/android/youtube/player/YouTubeBaseActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15756303" vertical-offset="0" max-vertical-offset="630">
+          <caret line="6" column="13" selection-start="176" selection-end="176" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/content/ContextWrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="403" max-vertical-offset="2895">
+          <caret line="39" column="45" selection-start="1530" selection-end="1530" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ResourceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <caret line="36" column="22" selection-start="2612" selection-end="2612" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResponseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <caret line="32" column="45" selection-start="861" selection-end="861" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8076925" vertical-offset="1094" max-vertical-offset="1860">
+          <caret line="83" column="208" selection-start="4624" selection-end="4661" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="915">
+          <caret line="33" column="0" selection-start="838" selection-end="838" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2035" max-vertical-offset="2700">
+          <caret line="174" column="5" selection-start="8269" selection-end="8269" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/ProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4500">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="20" column="43" selection-start="412" selection-end="412" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <folding />
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/TCImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4912664" vertical-offset="997" max-vertical-offset="1785">
+          <caret line="127" column="0" selection-start="3888" selection-end="3888" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="104" selection-start="823" selection-end="857" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1380">
+        <state vertical-scroll-proportion="-0.49563318" vertical-offset="797" max-vertical-offset="1380">
+          <caret line="38" column="38" selection-start="1922" selection-end="1922" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/ProfileFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
+        <state vertical-scroll-proportion="0.32751092" vertical-offset="0" max-vertical-offset="458">
+          <caret line="25" column="49" selection-start="610" selection-end="610" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_home.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4500">
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="420">
+          <caret line="9" column="29" selection-start="385" selection-end="385" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4500">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2403" max-vertical-offset="7620">
+          <caret line="233" column="10" selection-start="10739" selection-end="10739" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
+    <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="12" column="46" selection-start="516" selection-end="516" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="1320">
+          <caret line="61" column="114" selection-start="3794" selection-end="3984" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1605">
+          <caret line="48" column="49" selection-start="3019" selection-end="3019" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/resource_video_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="2145">
+          <caret line="22" column="28" selection-start="934" selection-end="934" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/resource_video_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3120" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="16" selection-start="10972" selection-end="11259" vertical-scroll-proportion="0.0" vertical-offset="2617" max-vertical-offset="7695">
+        <state vertical-scroll-proportion="-12.444445" vertical-offset="1089" max-vertical-offset="2130">
+          <caret line="95" column="35" selection-start="4213" selection-end="4213" />
           <folding>
-            <element signature="e#5206#5366#0" expanded="false" />
-            <element signature="e#5355#5356#0" expanded="false" />
+            <element signature="e#454#487#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/SelectProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3255" max-vertical-offset="4215">
+          <caret line="256" column="92" selection-start="13404" selection-end="13404" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/DashboardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="349" max-vertical-offset="1710">
+          <caret line="40" column="0" selection-start="1086" selection-end="1086" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/user/activities/CommentsActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17681728" vertical-offset="0" max-vertical-offset="509">
+          <caret line="7" column="32" selection-start="260" selection-end="260" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="23" column="50" selection-start="659" selection-end="676" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="42" selection-start="1540" selection-end="1554" vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1365" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="509" max-vertical-offset="1365">
+          <caret line="53" column="31" selection-start="2413" selection-end="2429" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/TCImageLoader.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/resource_image_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1533" selection-end="1533" vertical-scroll-proportion="0.0" vertical-offset="599" max-vertical-offset="2010" />
+        <state vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="1935">
+          <caret line="16" column="12" selection-start="1161" selection-end="1199" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/response_comments_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="18" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.3340708" vertical-offset="194" max-vertical-offset="1575" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="466">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/resource_image_layout.xml">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CollectionsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="45" selection-start="702" selection-end="722" vertical-scroll-proportion="-8.888889" vertical-offset="0" max-vertical-offset="2055" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="3840">
+          <caret line="79" column="29" selection-start="3456" selection-end="3471" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ImageResourceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1589" max-vertical-offset="2400">
+          <caret line="164" column="69" selection-start="6774" selection-end="6774" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/DBConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="314" max-vertical-offset="855">
+          <caret line="39" column="50" selection-start="1893" selection-end="1912" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2221" max-vertical-offset="2730">
+          <caret line="184" column="0" selection-start="8961" selection-end="8961" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/register_activity_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1170">
+          <caret line="12" column="31" selection-start="616" selection-end="616" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-land/comment_template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.7407408" vertical-offset="101" max-vertical-offset="690">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+          <folding />
+        </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
@@ -1377,102 +1675,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/database/FrequentQuerys.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="68" selection-start="2269" selection-end="2281" vertical-scroll-proportion="0.0" vertical-offset="463" max-vertical-offset="2280" />
+        <state vertical-scroll-proportion="0.5141129" vertical-offset="1695" max-vertical-offset="2550">
+          <caret line="137" column="59" selection-start="8216" selection-end="8216" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/SelectProfileActivity.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/java/text/SimpleDateFormat.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="0" selection-start="10623" selection-end="10623" vertical-scroll-proportion="0.0" vertical-offset="3403" max-vertical-offset="4545">
+        <state vertical-scroll-proportion="0.8185484" vertical-offset="209" max-vertical-offset="705">
+          <caret line="42" column="0" selection-start="1781" selection-end="1781" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CommentsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="600">
+          <caret line="44" column="118" selection-start="1448" selection-end="1448" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/comment_template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.851851" vertical-offset="266" max-vertical-offset="735">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResourceCommentsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1903" max-vertical-offset="7455">
+          <caret line="159" column="131" selection-start="7828" selection-end="7828" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3490#3535#0" expanded="false" />
-            <element signature="e#3825#3869#0" expanded="false" />
-            <element signature="e#5641#5686#0" expanded="false" />
-            <element signature="e#7392#7431#0" expanded="false" />
-            <element signature="e#8931#8976#0" expanded="false" />
-            <element signature="e#15092#15148#0" expanded="false" />
-            <element signature="e#15188#15249#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3512#3549#0" expanded="true" />
+            <element signature="e#5498#5535#0" expanded="true" />
+            <element signature="e#5573#5604#0" expanded="true" />
+            <element signature="e#5649#5682#0" expanded="true" />
+            <element signature="e#6083#6109#0" expanded="true" />
+            <element signature="e#8244#8274#0" expanded="true" />
+            <element signature="e#9491#9521#0" expanded="true" />
+            <element signature="e#12284#12322#0" expanded="true" />
+            <element signature="e#12387#12432#0" expanded="true" />
+            <element signature="e#12453#12498#0" expanded="true" />
+            <element signature="e#12552#12586#0" expanded="true" />
+            <element signature="e#12648#12683#0" expanded="true" />
+            <element signature="e#18002#18047#0" expanded="true" />
+            <element signature="e#19350#19404#0" expanded="true" />
+            <element signature="e#20216#20249#0" expanded="true" />
+            <element signature="e#20296#20329#0" expanded="true" />
+            <element signature="e#20592#20628#0" expanded="true" />
+            <element signature="e#21927#21953#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ImageResourceActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/resource_comments_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="47" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0" vertical-offset="700" max-vertical-offset="2610">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1958#2008#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/main_activity_collections.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="47" selection-start="758" selection-end="758" vertical-scroll-proportion="0.55580866" vertical-offset="86" max-vertical-offset="525" />
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ResourceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="1" selection-start="2662" selection-end="2995" vertical-scroll-proportion="0.22532189" vertical-offset="0" max-vertical-offset="466">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/CollectionsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="4170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/login_activity_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/constants/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="48" selection-start="1686" selection-end="1735" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/BeepManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="1305" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/DecodeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivityHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="19" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1665" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/result/ResultHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="477" column="40" selection-start="17284" selection-end="17284" vertical-scroll-proportion="0.3013393" vertical-offset="6360" max-vertical-offset="7050" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/general/FrequentMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="18" selection-start="9488" selection-end="9488" vertical-scroll-proportion="0.71276593" vertical-offset="2650" max-vertical-offset="3120" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-land/main_activity_collections.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="47" selection-start="758" selection-end="758" vertical-scroll-proportion="0.5945946" vertical-offset="44" max-vertical-offset="525">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
           <folding />
         </state>
       </provider>
@@ -1480,9 +1745,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-port/main_activity_home.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/resource_comments_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="481">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
           <folding />
         </state>
       </provider>
@@ -1490,9 +1756,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_profile.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_comments.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="15" selection-start="242" selection-end="242" vertical-scroll-proportion="0.18711019" vertical-offset="0" max-vertical-offset="481">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="195">
+          <caret line="5" column="37" selection-start="262" selection-end="262" />
           <folding />
         </state>
       </provider>
@@ -1500,9 +1767,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_activity_home.xml">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/layout/LinearLayoutOutlined.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.24948025" vertical-offset="0" max-vertical-offset="481">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="17" column="13" selection-start="399" selection-end="399" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/comments_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="509">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/comment_template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="735">
+          <caret line="28" column="32" selection-start="1006" selection-end="1006" />
           <folding />
         </state>
       </provider>
@@ -1510,83 +1794,42 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/FinishListener.java">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/TextResourceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="19" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0625" vertical-offset="134" max-vertical-offset="630" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="36" selection-start="2740" selection-end="2740" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="2730">
+        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1380">
+          <caret line="69" column="58" selection-start="2703" selection-end="2777" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/RegisterActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/VideoResourceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="38" selection-start="7530" selection-end="7530" vertical-scroll-proportion="0.0" vertical-offset="2034" max-vertical-offset="2535">
+        <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="2565">
+          <caret line="94" column="41" selection-start="3108" selection-end="3108" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/bin/classes/es/uc3m/moc/etiquetar/LoginActivity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="36" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1860">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/URLResourceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="466" max-vertical-offset="975">
+          <caret line="85" column="1" selection-start="3073" selection-end="3073" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="499" column="33" selection-start="28826" selection-end="28826" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
+        <state vertical-scroll-proportion="0.39314517" vertical-offset="585" max-vertical-offset="7515">
+          <caret line="76" column="0" selection-start="2996" selection-end="2996" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/AutoFocusCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="12" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraConfigurationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="12" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/CameraManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="19" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="3870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/camera/PreviewCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="12" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="930">
-          <folding>
-            <element signature="e#0#1811#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/InactivityTimer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="49" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/qrlecture/CaptureActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="342" column="32" selection-start="12892" selection-end="12892" vertical-scroll-proportion="9.217898" vertical-offset="92" max-vertical-offset="5085">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -27,8 +27,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity;
-import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments.ResourceCommentsActivity;
+import es.uc3m.moc.etiquetar.user.activities.DashboardActivity;
+import es.uc3m.moc.etiquetar.user.activities.resources.comments.ResourceCommentsActivity;
 import es.uc3m.moc.etiquetar.utilities.constants.Constants;
 import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
 import es.uc3m.moc.etiquetar.utilities.database.DBManager;
@@ -49,8 +49,8 @@ public class LoginActivity extends Activity {
         SharedPreferences sharedPreferences =  getSharedPreferences(Constants.APP_NAME,MODE_PRIVATE);
         // TODO BORRAR
         sharedPreferences.edit().clear().commit();
-//        sharedPreferences.edit().putBoolean(Constants.SHARED_PREFERENCES_LOGGED, false).commit();
-//        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, "kape").commit();
+        sharedPreferences.edit().putBoolean(Constants.SHARED_PREFERENCES_LOGGED, true).commit();
+        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_NAME, "kape").commit();
         if(sharedPreferences.getBoolean(Constants.SHARED_PREFERENCES_LOGGED, false)) {
             launchDashboardActivity();
         }
@@ -344,7 +344,7 @@ public class LoginActivity extends Activity {
         sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
 
         //**************************************************************************************************************\\
-        userID = 70;
+        /*userID = 70;
         collectionName = "Aves";
         collectionID = 117;
         collectionCreatedAt = "2013-09-14 16:59:20";
@@ -406,7 +406,7 @@ public class LoginActivity extends Activity {
         resourceContentValues.put(DBConstants.RESOURCE_QR_ID, qrID);
         sqLiteDatabase.insert(DBConstants.RESOURCE_TABLE, null, resourceContentValues);
         //**************************************************************************************************************\\
-
+        */
     }
 
     private void dropDB() {

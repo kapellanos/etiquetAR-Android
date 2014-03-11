@@ -2,11 +2,12 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/LoginActivity.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/HomeActivity.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/ImageResourceActivity.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/SelectProfileActivity.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/comments/ResourceCommentsActivity.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/normaluser/activities/resources/comments/ResponseActivity.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/CommentsActivity.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/HomeActivity.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/ImageResourceActivity.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/SelectProfileActivity.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResourceCommentsActivity.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/user/activities/resources/comments/ResponseActivity.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/ExecuteInBackground.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/es/uc3m/moc/etiquetar/utilities/http/Post.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

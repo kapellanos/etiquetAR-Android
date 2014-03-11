@@ -21,10 +21,10 @@ import com.google.android.youtube.player.internal.ac;
 
 import es.uc3m.moc.etiquetar.LoginActivity;
 import es.uc3m.moc.etiquetar.R;
-import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.user.activities.resources.SelectProfileActivity;
 import es.uc3m.moc.etiquetar.utilities.constants.Constants;
 
-public abstract class FrequentMethods {
+public class FrequentMethods {
 
     /**
      * Comprueba si la URL pertenece a etiquetAR

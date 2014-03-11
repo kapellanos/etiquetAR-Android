@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import es.uc3m.moc.etiquetar.user.normaluser.activities.CollectionsActivity;
+import es.uc3m.moc.etiquetar.user.activities.CollectionsActivity;
 import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
 
 /**
@@ -18,7 +18,7 @@ import es.uc3m.moc.etiquetar.utilities.constants.DBConstants;
  *
  * Clase abstracta que se utilizará para realizar consultas comunes a través de métodos estáticos
  */
-public abstract class FrequentQuerys {
+public class FrequentQuerys {
 
     /**
      * Introducirá los datos de una nueva etiqueta en la base de datos para que esté disponible para el usuario a través de la actividad home
@@ -129,8 +129,16 @@ public abstract class FrequentQuerys {
      * @param resourceID    el identificador del recurso al que se corresponde el comentario
      * @param comment       el comentario completo
      */
-    public static void saveNewComment(int resourceID, String comment, Context context) {
+    public static void saveNewComment(int resourceID, String comment, String resourceTitle, String date, Context context) {
         SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+        ContentValues comments = new ContentValues();
+        comments.put(DBConstants.COMMENTS_TABLE_RESOURCE_ID, resourceID);
+        comments.put(DBConstants.COMMENTS_TABLE_COMMENT, comment);
+        comments.put(DBConstants.COMMENTS_TABLE_RESOURCE_NAME, resourceTitle);
+        comments.put(DBConstants.COMMENTS_TABLE_DATE, date);
+
+
+        db.insert(DBConstants.COMMENTS_TABLE, null, comments);
     }
 
     /**
@@ -148,7 +156,17 @@ public abstract class FrequentQuerys {
                 new String[] {String.valueOf(collectionID)},
                 null,
                 null,
-                null
-                );
+                null);
+    }
+
+    public static Cursor getComments(Context context) {
+        SQLiteDatabase db = DBManager.getOpenedDatabase(context);
+        return db.query(DBConstants.COMMENTS_TABLE,
+                DBConstants.COMMENTS_COLUMNS,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 }

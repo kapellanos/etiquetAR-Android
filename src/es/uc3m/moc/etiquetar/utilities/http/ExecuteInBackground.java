@@ -14,10 +14,10 @@ import java.net.URL;
 
 import es.uc3m.moc.etiquetar.LoginActivity;
 import es.uc3m.moc.etiquetar.RegisterActivity;
-import es.uc3m.moc.etiquetar.user.normaluser.activities.HomeActivity;
-import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.ImageResourceActivity;
-import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.SelectProfileActivity;
-import es.uc3m.moc.etiquetar.user.normaluser.activities.resources.comments.ResourceCommentsActivity;
+import es.uc3m.moc.etiquetar.user.activities.HomeActivity;
+import es.uc3m.moc.etiquetar.user.activities.resources.ImageResourceActivity;
+import es.uc3m.moc.etiquetar.user.activities.resources.SelectProfileActivity;
+import es.uc3m.moc.etiquetar.user.activities.resources.comments.ResourceCommentsActivity;
 import es.uc3m.moc.etiquetar.utilities.constants.Constants;
 
 /**

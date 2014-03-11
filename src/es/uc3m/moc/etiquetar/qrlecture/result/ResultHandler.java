@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.google.zxing.Result;
@@ -42,7 +41,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import es.uc3m.moc.etiquetar.R;
-import es.uc3m.moc.etiquetar.qrlecture.Contents;
 
 /**
  * A base class for the Android-specific barcode handlers. These allow the app to polymorphically
@@ -75,26 +73,6 @@ public abstract class ResultHandler {
   private static final String MARKET_REFERRER_SUFFIX =
       "&referrer=utm_source%3Dbarcodescanner%26utm_medium%3Dapps%26utm_campaign%3Dscan";
 
-  private static final String[] EMAIL_TYPE_STRINGS = {"home", "work", "mobile"};
-  private static final String[] PHONE_TYPE_STRINGS = {"home", "work", "mobile", "fax", "pager", "main"};
-  private static final String[] ADDRESS_TYPE_STRINGS = {"home", "work"};
-  private static final int[] EMAIL_TYPE_VALUES = {
-      ContactsContract.CommonDataKinds.Email.TYPE_HOME,
-      ContactsContract.CommonDataKinds.Email.TYPE_WORK,
-      ContactsContract.CommonDataKinds.Email.TYPE_MOBILE,
-  };
-  private static final int[] PHONE_TYPE_VALUES = {
-      ContactsContract.CommonDataKinds.Phone.TYPE_HOME,
-      ContactsContract.CommonDataKinds.Phone.TYPE_WORK,
-      ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE,
-      ContactsContract.CommonDataKinds.Phone.TYPE_FAX_WORK,
-      ContactsContract.CommonDataKinds.Phone.TYPE_PAGER,
-      ContactsContract.CommonDataKinds.Phone.TYPE_MAIN,
-  };
-  private static final int[] ADDRESS_TYPE_VALUES = {
-      ContactsContract.CommonDataKinds.StructuredPostal.TYPE_HOME,
-      ContactsContract.CommonDataKinds.StructuredPostal.TYPE_WORK,
-  };
   private static final int NO_TYPE = -1;
 
   public static final int MAX_BUTTON_COUNT = 4;
@@ -198,46 +176,6 @@ public abstract class ResultHandler {
     return result.getType();
   }
 
-  /**
-   * Sends an intent to create a new calendar event by prepopulating the Add Event UI. Older
-   * versions of the system have a bug where the event title will not be filled out.
-   *
-   * @param summary A description of the event
-   * @param start   The start time as yyyyMMdd or yyyyMMdd'T'HHmmss or yyyyMMdd'T'HHmmss'Z'
-   * @param end     The end time as yyyyMMdd or yyyyMMdd'T'HHmmss or yyyyMMdd'T'HHmmss'Z'
-   * @param location a text description of the event location
-   * @param description a text description of the event itself
-   */
-  final void addCalendarEvent(String summary,
-                              String start,
-                              String end,
-                              String location,
-                              String description) {
-    Intent intent = new Intent(Intent.ACTION_EDIT);
-    intent.setType("vnd.android.cursor.item/event");
-    long startMilliseconds = calculateMilliseconds(start);
-    intent.putExtra("beginTime", startMilliseconds);
-    boolean allDay = start.length() == 8;
-    if (allDay) {
-      intent.putExtra("allDay", true);
-    }
-    long endMilliseconds;
-    if (end == null) {
-      if (allDay) {
-        // + 1 day
-        endMilliseconds = startMilliseconds + 24 * 60 * 60 * 1000;
-      } else {
-        endMilliseconds = startMilliseconds;
-      }
-    } else {
-      endMilliseconds = calculateMilliseconds(end);
-    }
-    intent.putExtra("endTime", endMilliseconds);
-    intent.putExtra("title", summary);
-    intent.putExtra("eventLocation", location);
-    intent.putExtra("description", description);
-    launchIntent(intent);
-  }
 
   private static long calculateMilliseconds(String when) {
     if (when.length() == 8) {
@@ -264,118 +202,12 @@ public abstract class ResultHandler {
     }
   }
 
-  final void addPhoneOnlyContact(String[] phoneNumbers,String[] phoneTypes) {
-    addContact(null, null, phoneNumbers, phoneTypes, null, null, null, null, null, null, null, null, null, null);
-  }
-
-  final void addEmailOnlyContact(String[] emails, String[] emailTypes) {
-    addContact(null, null, null, null, emails, emailTypes, null, null, null, null, null, null, null, null);
-  }
-
-  final void addContact(String[] names,
-                        String pronunciation,
-                        String[] phoneNumbers,
-                        String[] phoneTypes,
-                        String[] emails,
-                        String[] emailTypes,
-                        String note,
-                        String instantMessenger,
-                        String address,
-                        String addressType,
-                        String org,
-                        String title,
-                        String url,
-                        String birthday) {
-
-    // Only use the first name in the array, if present.
-    Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT, ContactsContract.Contacts.CONTENT_URI);
-    intent.setType(ContactsContract.Contacts.CONTENT_ITEM_TYPE);
-    putExtra(intent, ContactsContract.Intents.Insert.NAME, names != null ? names[0] : null);
-
-    putExtra(intent, ContactsContract.Intents.Insert.PHONETIC_NAME, pronunciation);
-
-    int phoneCount = Math.min(phoneNumbers != null ? phoneNumbers.length : 0, Contents.PHONE_KEYS.length);
-    for (int x = 0; x < phoneCount; x++) {
-      putExtra(intent, Contents.PHONE_KEYS[x], phoneNumbers[x]);
-      if (phoneTypes != null && x < phoneTypes.length) {
-        int type = toPhoneContractType(phoneTypes[x]);
-        if (type >= 0) {
-          intent.putExtra(Contents.PHONE_TYPE_KEYS[x], type);
-        }
-      }
-    }
-
-    int emailCount = Math.min(emails != null ? emails.length : 0, Contents.EMAIL_KEYS.length);
-    for (int x = 0; x < emailCount; x++) {
-      putExtra(intent, Contents.EMAIL_KEYS[x], emails[x]);
-      if (emailTypes != null && x < emailTypes.length) {
-        int type = toEmailContractType(emailTypes[x]);
-        if (type >= 0) {
-          intent.putExtra(Contents.EMAIL_TYPE_KEYS[x], type);
-        }
-      }
-    }
-
-    // No field for URL, birthday; use notes
-    StringBuilder aggregatedNotes = new StringBuilder();
-    for (String aNote : new String[] { url, birthday, note }) {
-      if (aNote != null) {
-        if (aggregatedNotes.length() > 0) {
-          aggregatedNotes.append('\n');
-        }
-        aggregatedNotes.append(aNote);
-      }
-    }
-    if (aggregatedNotes.length() > 0) {
-      putExtra(intent, ContactsContract.Intents.Insert.NOTES, aggregatedNotes.toString());
-    }
-    
-    putExtra(intent, ContactsContract.Intents.Insert.IM_HANDLE, instantMessenger);
-    putExtra(intent, ContactsContract.Intents.Insert.POSTAL, address);
-    if (addressType != null) {
-      int type = toAddressContractType(addressType);
-      if (type >= 0) {
-        intent.putExtra(ContactsContract.Intents.Insert.POSTAL_TYPE, type);
-      }
-    }
-    putExtra(intent, ContactsContract.Intents.Insert.COMPANY, org);
-    putExtra(intent, ContactsContract.Intents.Insert.JOB_TITLE, title);
-    launchIntent(intent);
-  }
-
-  private static int toEmailContractType(String typeString) {
-    return doToContractType(typeString, EMAIL_TYPE_STRINGS, EMAIL_TYPE_VALUES);
-  }
-
-  private static int toPhoneContractType(String typeString) {
-    return doToContractType(typeString, PHONE_TYPE_STRINGS, PHONE_TYPE_VALUES);
-  }
-
-  private static int toAddressContractType(String typeString) {
-    return doToContractType(typeString, ADDRESS_TYPE_STRINGS, ADDRESS_TYPE_VALUES);
-  }
-
-  private static int doToContractType(String typeString, String[] types, int[] values) {
-    if (typeString == null) {
-      return NO_TYPE;
-    }
-    for (int i = 0; i < types.length; i++) {
-      String type = types[i];
-      if (typeString.startsWith(type) || typeString.startsWith(type.toUpperCase(Locale.ENGLISH))) {
-        return values[i];
-      }
-    }
-    return NO_TYPE;
-  }
 
   final void shareByEmail(String contents) {
     sendEmailFromUri("mailto:", null, activity.getString(R.string.msg_share_subject_line),
         contents);
   }
 
-  final void sendEmail(String address, String subject, String body) {
-    sendEmailFromUri("mailto:" + address, address, subject, body);
-  }
 
   // Use public Intent fields rather than private GMail app fields to specify subject and body.
   final void sendEmailFromUri(String uri, String email, String subject, String body) {
@@ -394,9 +226,6 @@ public abstract class ResultHandler {
         contents);
   }
 
-  final void sendSMS(String phoneNumber, String body) {
-    sendSMSFromUri("smsto:" + phoneNumber, body);
-  }
 
   final void sendSMSFromUri(String uri, String body) {
     Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(uri));
@@ -406,48 +235,7 @@ public abstract class ResultHandler {
     launchIntent(intent);
   }
 
-  final void sendMMS(String phoneNumber, String subject, String body) {
-    sendMMSFromUri("mmsto:" + phoneNumber, subject, body);
-  }
 
-  final void sendMMSFromUri(String uri, String subject, String body) {
-    Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(uri));
-    // The Messaging app needs to see a valid subject or else it will treat this an an SMS.
-    if (subject == null || subject.length() == 0) {
-      putExtra(intent, "subject", activity.getString(R.string.msg_default_mms_subject));
-    } else {
-      putExtra(intent, "subject", subject);
-    }
-    putExtra(intent, "sms_body", body);
-    intent.putExtra("compose_mode", true);
-    launchIntent(intent);
-  }
-
-  final void dialPhone(String phoneNumber) {
-    launchIntent(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber)));
-  }
-
-  final void dialPhoneFromUri(String uri) {
-    launchIntent(new Intent(Intent.ACTION_DIAL, Uri.parse(uri)));
-  }
-
-  final void openMap(String geoURI) {
-    launchIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(geoURI)));
-  }
-
-  /**
-   * Do a geo search using the address as the query.
-   *
-   * @param address The address to find
-   * @param title An optional title, e.g. the name of the business at this address
-   */
-  final void searchMap(String address, CharSequence title) {
-    String query = address;
-    if (title != null && title.length() > 0) {
-      query += " (" + title + ')';
-    }
-    launchIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + Uri.encode(query))));
-  }
 
   final void openURL(String url) {
     launchIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));

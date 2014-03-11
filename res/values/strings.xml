@@ -34,7 +34,8 @@
     <string name="errorNoCommentsTitle">No existen comentarios</string>
     <string name="noComments">No existe ningún comentario. ¡Añade el primero!</string>
     <string name="addNewComment">Añadir nuevo comentario</string>
-
+    <string name="change_email_prefence">Cambiar el correo electrónico</string>
+    <string name="use_wifi_only_prefence">Descargar solo con WiFi</string>
     <string name="button_ok">OK</string>
     <string name="button_share_by_email">Compartir por correo electrónico</string>
     <string name="button_share_by_sms">Compartir por SMS</string>
@@ -96,4 +97,5 @@
     <string name="textNew">nuevos</string>
     <string name="textNewViewCounter">nuevas</string>
     <string name="collectionsLastCollectionsView">Últimas colecciones vistas</string>
+    <string name="data_download_preferences">Descarga de contenido</string>
 </resources>

@@ -8,5 +8,17 @@
             android:key="pref_change_name"
             android:title="@string/change_name_preference"
             />
+        <EditTextPreference
+            android:key="pref_change_name"
+            android:title="@string/change_email_prefence"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/data_download_preferences"
+        android:key="pref_key_data_download_preferences">
+        <SwitchPreference
+            android:key="pref_download_on_wifi"
+            android:title="@string/use_wifi_only_prefence">
+            </SwitchPreference>
     </PreferenceCategory>
 </PreferenceScreen>

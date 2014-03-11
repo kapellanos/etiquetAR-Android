@@ -58,6 +58,8 @@
     <string name="cb_remember_profile">Recordar el perfil seleccionado para la colección actual</string>
     <string name="data_access_preferences">Datos del usuario</string>
     <string name="change_name_preference">Cambiar el nombre del usuario</string>
+    <string name="change_email_prefence">Cambiar el correo electrónico</string>
+    <string name="use_wifi_only_prefence">Descargar contenido solo cuando se dispone de una conexión WiFi</string>
     <string name="comment_respond_to">Responder al comentario</string>
     <string name="comment_see_answer_part_1">Ver respuestas (</string>
     <string name="comment_see_answer_part_2">respuestas)</string>

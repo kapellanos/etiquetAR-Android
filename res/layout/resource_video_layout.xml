@@ -17,12 +17,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/tvVideoResourceTitle"
         android:layout_gravity="center"
-        android:layout_weight="1"
-        android:textStyle="bold"/>
+        android:layout_weight="0.5"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="3"
+        android:layout_weight="3.5"
         android:background="@android:color/transparent"
         android:id="@+id/llVideoContainer">
         <com.google.android.youtube.player.YouTubePlayerView
@@ -30,97 +31,107 @@
             android:layout_height="fill_parent"
             android:id="@+id/ytVideoResource"
             android:layout_marginLeft="3dp"
-            android:layout_weight="0.85"
+            android:layout_weight="0.50"
             android:background="@android:color/black"
             android:contentDescription="@string/resourceImage"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.1"
+            android:gravity="center_horizontal"
+            android:weightSum="12"
+            android:id="@+id/llIconsVideo">
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="0.15"
-                android:id="@+id/llIconsVideo">
-                <LinearLayout
+                android:layout_weight="2"
+                android:gravity="top">
+                <ImageView
+                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                    <ImageView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:src="@drawable/face" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="2dp"
-                        android:id="@+id/tvVideoLikes"/>
-                </LinearLayout>
-                <LinearLayout
+                    android:src="@drawable/face" />
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:src="@drawable/bubble" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:layout_marginLeft="2dp"
-                        android:id="@+id/tvVideoNumberComments"/>
-                </LinearLayout>
-                <LinearLayout
+                    android:text="0"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tvVideoLikes"
+                    android:textSize="24sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="top">
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/bubble" />
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:src="@drawable/eye"
-                        android:contentDescription="@string/numberViews"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:text="0"
-                        android:id="@+id/tvVideoNumberOfVisits"/>
-                </LinearLayout>
+                    android:text="0"
+                    android:layout_marginLeft="2dp"
+                    android:id="@+id/tvVideoNumberComments"
+                    android:textSize="24sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="top">
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/eye"
+                    android:contentDescription="@string/numberViews"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="1"
+                    android:id="@+id/tvVideoNumberOfVisits"
+                    android:textSize="24sp"
+                    />
             </LinearLayout>
         </LinearLayout>
-        <ScrollView
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:layout_marginTop="10dp"
+        android:id="@+id/svInfoVideo">
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:layout_marginTop="10dp"
-            android:id="@+id/svInfoVideo">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvInfoVideo"
-                android:gravity="center"/>
-        </ScrollView>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:gravity="right|bottom"
-            android:layout_weight="1"
-            tools:ignore="UseCompoundDrawables"
-            android:id="@+id/llAddComments">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/resourceAddComment"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_marginRight="6dp"
-                android:textStyle="italic"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ivAddComment"
-                android:src="@drawable/pencil_small"
-                android:contentDescription="@string/buttonAddComment"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:id="@+id/tvInfoVideo"
+            android:gravity="center"
+            android:textSize="18sp"/>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:gravity="right|bottom"
+        android:layout_weight="1"
+        tools:ignore="UseCompoundDrawables"
+        android:id="@+id/llAddComments">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resourceAddComment"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginRight="6dp"
+            android:textStyle="italic"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivAddComment"
+            android:src="@drawable/pencil_small"
+            android:contentDescription="@string/buttonAddComment"/>
+    </LinearLayout>
 </LinearLayout>

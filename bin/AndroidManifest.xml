@@ -49,67 +49,67 @@
         <activity android:name="es.uc3m.moc.etiquetar.RegisterActivity"
             android:label="Registro"/>
 
-        <activity android:name=".user.normaluser.activities.resources.SelectProfileActivity" android:label="Recurso" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity"
+        <activity android:name=".user.activities.resources.SelectProfileActivity" android:label="Recurso" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.resources.VideoResourceActivity" android:label="Recurso" android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.resources.VideoResourceActivity" android:label="Recurso" android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.resources.ImageResourceActivity" android:label="Recurso" android:configChanges="orientation" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.resources.ImageResourceActivity" android:label="Recurso" android:configChanges="orientation" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.resources.TextResourceActivity" android:label="Recurso" android:configChanges="orientation" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.resources.TextResourceActivity" android:label="Recurso" android:configChanges="orientation" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
         ç
-        <activity android:name=".user.normaluser.activities.resources.comments.ResourceCommentsActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.resources.comments.ResourceCommentsActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.resources.comments.ResponseActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" android:theme="@style/FloatingWindow" />
+        <activity android:name=".user.activities.resources.comments.ResponseActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity" android:theme="@style/FloatingWindow" />
 
-        <activity android:name=".user.normaluser.activities.DashboardActivity" />
+        <activity android:name=".user.activities.DashboardActivity" />
 
-        <activity android:name=".user.normaluser.activities.CollectionsActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.CollectionsActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.CommentsActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" >
+        <activity android:name=".user.activities.CommentsActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.HomeActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.HomeActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.ProfileActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.ProfileActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
         </activity>
 
-        <activity android:name=".user.normaluser.activities.resources.URLResourceActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity">
+        <activity android:name=".user.activities.resources.URLResourceActivity" android:parentActivityName="es.uc3m.moc.etiquetar.user.activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.uc3m.moc.etiquetar.user.normaluser.activities.DashboardActivity" />
