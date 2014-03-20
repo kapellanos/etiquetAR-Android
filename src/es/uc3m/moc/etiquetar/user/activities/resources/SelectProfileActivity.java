@@ -151,7 +151,7 @@ public class SelectProfileActivity extends Activity implements View.OnClickListe
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                 );
-                params.setMargins(40, 20, 40, 0);
+                params.setMargins(40, 20, 10, 0);
                 cb.setLayoutParams(params);
                 cb.setText(getString(R.string.cb_remember_profile));
                 cb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);

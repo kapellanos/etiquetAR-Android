@@ -236,10 +236,7 @@ public class ResourceCommentsActivity extends Activity {
                         }
                         final Item[] items = {
                                 new Item(getString(R.string.comment_respond_to), R.drawable.response),
-                                new Item(getString(R.string.comment_see_answer_part_1) + numberResponses + getString(R.string.comment_see_answer_part_2), drawable),
-                                new Item(getString(R.string.comment_delete), R.drawable.trash),
-                                new Item(getString(R.string.comment_like_it), R.drawable.like),
-                                new Item("Seguir las respuestas a este comentario", R.drawable.trash)
+                                new Item(getString(R.string.comment_see_answer_part_1) + numberResponses + " " + getString(R.string.comment_see_answer_part_2), drawable)
                         };
 
                         final ListAdapter adapter = new ArrayAdapter<Item>(

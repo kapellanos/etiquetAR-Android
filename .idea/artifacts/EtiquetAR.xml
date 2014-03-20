@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="apk" build-on-make="true" name="EtiquetAR">
+  <artifact type="apk" name="EtiquetAR">
     <output-path>$PROJECT_DIR$/out/artifacts/EtiquetAR</output-path>
     <properties id="android-properties">
       <options>

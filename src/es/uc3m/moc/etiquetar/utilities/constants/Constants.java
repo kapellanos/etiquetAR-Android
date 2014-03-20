@@ -16,7 +16,7 @@ public abstract class Constants {
     // Constantes generales de la aplicación
     // TODO modificar la URL base
     public final static String URL_BASE = "http://etiquetar.com.es";
-    public static final String URL_SERVER_LOGIN = URL_BASE.concat("/api/v1/android_app/login");
+    public static final String URL_SERVER_LOGIN = URL_BASE.concat("/api/v1/tokens.json");
     public static final String URL_SERVER_REGISTER = URL_BASE.concat("/api/v1/android_app/register");
     public static final String URL_SERVER_PROFILES = URL_BASE.concat("/api/v1/android_app/selectprofile");
     public static final String URL_SERVER_RESOURCE = URL_BASE.concat("/api/v1/android_app/selectresource");
